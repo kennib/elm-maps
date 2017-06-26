@@ -26,10 +26,12 @@ type Msg
   | DragTo Offset
   | DragStop
   | Zoom Offset Float
+  | SetBounds Bounds
 
 type alias Map =
   { tileServer : String
-  , bounds : Bounds
+  , zoom : Float
+  , center : GeoLocation
   , width : Float
   , height : Float
   , tileSize : Float
@@ -52,7 +54,11 @@ type alias Offset =
   }
 
 type Bounds
-  = Centered
+  = Bounds
+    { northEast : GeoLocation
+    , southWest : GeoLocation
+    }
+  | Centered
     { zoom : Float
     , center : GeoLocation
     }
@@ -76,7 +82,8 @@ map options =
   let
     model =
       { tileServer = options.tileServer
-      , bounds = options.bounds
+      , zoom = boundsZoom options.tileSize options.width options.height options.bounds
+      , center = boundsCenter options.bounds
       , width = options.width
       , height = options.height
       , tileSize = options.tileSize
@@ -104,6 +111,36 @@ defaultOptions =
 sydney : GeoLocation
 sydney = { lat = -33.865143, lng = 151.209900 }
 
+boundsZoom : Float -> Float -> Float -> Bounds -> Float
+boundsZoom tileSize width height bounds =
+  case bounds of
+    Bounds bounds ->
+      let
+        (ne, sw) = (bounds.northEast, bounds.southWest)
+        -- The following assumes a Mercator projection
+        latY lat = sin (lat * pi / 180)
+        radX2 lat = (logBase e ((1 + latY lat) / (1 - latY lat))) / 2
+        latRad lat = (max (-pi) <| min (radX2 lat) pi) / 2
+        latFraction = (latRad ne.lat) - (latRad sw.lat)
+        lngFraction = ((ne.lng - sw.lng) |> wrap 0 360) / 360
+        zoom mapSize tileSize frac = logBase 2 (mapSize / tileSize / frac)
+      in
+        min
+          (zoom width tileSize lngFraction)
+          (zoom height tileSize latFraction)
+    Centered bounds ->
+      bounds.zoom
+
+boundsCenter : Bounds -> GeoLocation
+boundsCenter bounds =
+  case bounds of
+    Bounds bounds ->
+      { lat = (bounds.northEast.lat + bounds.southWest.lat) / 2
+      , lng = (bounds.northEast.lng + bounds.southWest.lng) / 2
+      }
+    Centered bounds ->
+      bounds.center
+
 update : Msg -> Map -> (Map, Cmd Msg)
 update msg map =
   case msg of
@@ -129,6 +166,11 @@ update msg map =
           |> applyOffset { x = -(map.width/2 - offset.x), y = -(map.height/2 - offset.y) }
       in
         (zoomedMap, Cmd.none)
+    SetBounds bounds ->
+      let
+        zoom = boundsZoom map.tileSize map.width map.height bounds
+      in
+        ({ map | zoom = zoom, center = boundsCenter bounds }, Cmd.none)
 
 subscriptions : Map -> Sub Msg
 subscriptions map =
@@ -150,36 +192,19 @@ applyDrag drag map =
 applyOffset : Offset -> Map -> Map
 applyOffset pos map =
   let
-    bounds =
-      case map.bounds of
-        Centered bounds ->
-          Centered
-            { zoom = bounds.zoom
-            , center =
-              let
-                mapTile = locationTile (toFloat <| ceiling bounds.zoom) bounds.center
-                tile = screenTile map pos.x pos.y
-              in
-                tileLocation
-                  (toFloat <| ceiling bounds.zoom)
-                  (mapTile.x - tile.x)
-                  (mapTile.y - tile.y)
-            }
+    mapTile = locationTile (toFloat <| ceiling map.zoom) map.center
+    tile = screenTile map pos.x pos.y
+    center =
+      tileLocation
+        (toFloat <| ceiling map.zoom)
+        (mapTile.x - tile.x)
+        (mapTile.y - tile.y)
   in
-    { map | bounds = bounds }
+    { map | center = center }
 
 applyZoom : Float -> Map -> Map
 applyZoom zoom map =
-  let
-    bounds =
-      case map.bounds of
-        Centered bounds ->
-          Centered
-            { zoom = min 19 <| max 0 <| bounds.zoom + zoom
-            , center = bounds.center
-            }
-  in
-    { map | bounds = bounds }
+  { map | zoom = min 19 <| max 0 <| map.zoom + zoom }
 
 scrollToZoom : Float -> Float
 scrollToZoom scroll =
@@ -249,30 +274,28 @@ viewTile map (url, offset) =
 
 tiles : Map -> List Tile
 tiles map =
-  case map.bounds of
-    Centered bounds ->
-      let
-        xCount = map.width/map.tileSize
-        yCount = map.height/map.tileSize
-        tile = locationTile (toFloat <| ceiling bounds.zoom) bounds.center
-        xTiles = List.range (floor <| -xCount/2) (ceiling <| xCount/2)
-        yTiles = List.range (floor <| -yCount/2) (ceiling <| yCount/2)
-        wrapTile = wrap 0 (2^(ceiling bounds.zoom))
-        tileXY x y =
-          ( tileUrl
-            map.tileServer
-            (ceiling bounds.zoom)
-            (floor tile.x + x |> wrapTile)
-            (floor tile.y + y |> wrapTile)
-          , Offset
-            (map.width/2  + (toFloat (floor tile.x) - tile.x + toFloat x) * map.tileSize)
-            (map.height/2 + (toFloat (floor tile.y) - tile.y + toFloat y) * map.tileSize)
-          )
-      in
-        tileXY
-          |> (flip List.map) xTiles
-          |> List.map ((flip List.map) yTiles)
-          |> List.concat
+  let
+    xCount = map.width/map.tileSize
+    yCount = map.height/map.tileSize
+    tile = locationTile (toFloat <| ceiling map.zoom) map.center
+    xTiles = List.range (floor <| -xCount/2) (ceiling <| xCount/2)
+    yTiles = List.range (floor <| -yCount/2) (ceiling <| yCount/2)
+    wrapTile = wrap 0 (2^(ceiling map.zoom))
+    tileXY x y =
+      ( tileUrl
+        map.tileServer
+        (ceiling map.zoom)
+        (floor tile.x + x |> wrapTile)
+        (floor tile.y + y |> wrapTile)
+      , Offset
+        (map.width/2  + (toFloat (floor tile.x) - tile.x + toFloat x) * map.tileSize)
+        (map.height/2 + (toFloat (floor tile.y) - tile.y + toFloat y) * map.tileSize)
+      )
+  in
+    tileXY
+      |> (flip List.map) xTiles
+      |> List.map ((flip List.map) yTiles)
+      |> List.concat
 
 screenTile : Map -> Float -> Float -> Offset
 screenTile map x y =
