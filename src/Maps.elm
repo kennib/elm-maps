@@ -24,6 +24,7 @@ type Msg
   = DragStart Offset
   | DragTo Offset
   | DragStop
+  | Zoom Offset Float
 
 type alias Map =
   { tileServer : String
@@ -118,6 +119,15 @@ update msg map =
         ({ draggedMap | drag = dragState }, Cmd.none)
     DragStop ->
       ({ map | drag = Nothing }, Cmd.none)
+    Zoom offset zoom ->
+      let
+        zoomedMap =
+          map
+          |> applyOffset { x = map.width/2 - offset.x, y = map.height/2 - offset.y }
+          |> applyZoom zoom
+          |> applyOffset { x = -(map.width/2 - offset.x), y = -(map.height/2 - offset.y) }
+      in
+        (zoomedMap, Cmd.none)
 
 subscriptions : Map -> Sub Msg
 subscriptions map =
@@ -157,6 +167,23 @@ applyOffset pos map =
   in
     { map | bounds = bounds }
 
+applyZoom : Float -> Map -> Map
+applyZoom zoom map =
+  let
+    bounds =
+      case map.bounds of
+        Centered bounds ->
+          Centered
+            { zoom = min 19 <| max 0 <| bounds.zoom + zoom
+            , center = bounds.center
+            }
+  in
+    { map | bounds = bounds }
+
+scrollToZoom : Float -> Float
+scrollToZoom scroll =
+  scroll * 0.05
+
 view : Map -> Html Msg
 view map =
   Html.div
@@ -186,6 +213,19 @@ view map =
           (Json.field "clientX" Json.float)
           (Json.field "clientY" Json.float)
       , onMouseUp DragStop
+      , onWithOptions "wheel"
+        { preventDefault = True, stopPropagation = False }
+        <| Json.map3
+          (\x y scroll -> Zoom (Offset x y) <| scrollToZoom scroll)
+          (Json.field "clientX" Json.float)
+          (Json.field "clientY" Json.float)
+          (Json.field "deltaY" Json.float)
+      , onWithOptions "dblclick"
+        { preventDefault = True, stopPropagation = False }
+        <| Json.map2
+          (\x y -> Zoom (Offset x y) 1)
+          (Json.field "clientX" Json.float)
+          (Json.field "clientY" Json.float)
       ]
       <| List.map (viewTile map)
       <| tiles map
