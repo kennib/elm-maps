@@ -17,6 +17,7 @@ import Regex exposing (HowMany(..), regex)
 import Json.Decode as Json
 
 import Html exposing (Html, program)
+import Html.Keyed
 import Html.Events exposing (on, onWithOptions, onMouseUp, onMouseLeave)
 import Html.Attributes as Attr
 
@@ -192,7 +193,7 @@ view map =
       , ("height", toString map.height ++ "px")
       ]
     ]
-    [ Html.div
+    [ Html.Keyed.node "div"
       [ Attr.style
         [ ("position", "absolute")
         , ("width", toString map.width ++ "px")
@@ -227,7 +228,7 @@ view map =
           (Json.field "clientX" Json.float)
           (Json.field "clientY" Json.float)
       ]
-      <| List.map (viewTile map)
+      <| List.map (\(url, offset) -> (url, viewTile map (url, offset)))
       <| tiles map
     ]
 
@@ -241,6 +242,7 @@ viewTile map (url, offset) =
       , ("top", toString offset.y ++ "px")
       , ("width", toString map.tileSize ++ "px")
       , ("height", toString map.tileSize ++ "px")
+      , ("background-color", "#ddd")
       ]
     ]
     []
