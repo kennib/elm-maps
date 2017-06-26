@@ -17,11 +17,13 @@ import Regex exposing (HowMany(..), regex)
 import Json.Decode as Json
 
 import Html exposing (Html, program)
-import Html.Events exposing (on)
+import Html.Events exposing (on, onWithOptions, onMouseUp, onMouseLeave)
 import Html.Attributes as Attr
 
 type Msg
-  = SetBounds Bounds
+  = DragStart Offset
+  | DragTo Offset
+  | DragStop
 
 type alias Map =
   { tileServer : String
@@ -29,6 +31,7 @@ type alias Map =
   , width : Float
   , height : Float
   , tileSize : Float
+  , drag : Maybe Drag
   }
 
 type alias Options =
@@ -57,6 +60,10 @@ type alias GeoLocation =
   , lng : Float
   }
 
+type Drag
+  = StartDrag Offset
+  | Drag Offset Offset
+
 map : Options ->
   { init : (Map, Cmd Msg)
   , update : Msg -> Map -> (Map, Cmd Msg)
@@ -71,6 +78,7 @@ map options =
       , width = options.width
       , height = options.height
       , tileSize = options.tileSize
+      , drag = Nothing
       }
   in
     { init = (model, Cmd.none)
@@ -97,12 +105,57 @@ sydney = { lat = -33.865143, lng = 151.209900 }
 update : Msg -> Map -> (Map, Cmd Msg)
 update msg map =
   case msg of
-    SetBounds bounds ->
-      ({ map | bounds = bounds }, Cmd.none)
+    DragStart offset ->
+      ({ map | drag = Just <| StartDrag offset }, Cmd.none)
+    DragTo offset ->
+      let
+        dragState = Maybe.map (drag offset) map.drag
+        draggedMap =
+          case dragState of
+            Just drag -> applyDrag drag map
+            Nothing -> map
+      in
+        ({ draggedMap | drag = dragState }, Cmd.none)
+    DragStop ->
+      ({ map | drag = Nothing }, Cmd.none)
 
 subscriptions : Map -> Sub Msg
 subscriptions map =
   Sub.none
+
+drag : Offset -> Drag -> Drag
+drag offset state =
+  case state of
+    StartDrag start -> Drag start offset
+    Drag start end -> Drag end offset
+
+applyDrag : Drag -> Map -> Map
+applyDrag drag map =
+  case drag of
+    StartDrag _ -> map
+    Drag start end ->
+      applyOffset { x = end.x - start.x, y = end.y - start.y } map
+
+applyOffset : Offset -> Map -> Map
+applyOffset pos map =
+  let
+    bounds =
+      case map.bounds of
+        Centered bounds ->
+          Centered
+            { zoom = bounds.zoom
+            , center =
+              let
+                mapTile = locationTile (toFloat <| ceiling bounds.zoom) bounds.center
+                tile = screenTile map pos.x pos.y
+              in
+                tileLocation
+                  (toFloat <| ceiling bounds.zoom)
+                  (mapTile.x - tile.x)
+                  (mapTile.y - tile.y)
+            }
+  in
+    { map | bounds = bounds }
 
 view : Map -> Html Msg
 view map =
@@ -119,29 +172,20 @@ view map =
         , ("height", toString map.height ++ "px")
         , ("overflow", "hidden")
         ]
-      , on "mousedown"
-        <| Json.map
-        (\pos ->
-          case map.bounds of
-            Centered bounds ->
-              SetBounds
-              <| Centered
-                { zoom = bounds.zoom
-                , center =
-                  let
-                    mapTile = locationTile (toFloat <| ceiling bounds.zoom) bounds.center
-                    centerTile = screenTile map (map.width/2) (map.height/2)
-                    tile = screenTile map pos.x pos.y
-                  in
-                    tileLocation
-                      bounds.zoom
-                      (mapTile.x + tile.x - centerTile.x)
-                      (mapTile.y + tile.y - centerTile.y)
-                }
-        )
+      , if map.drag == Nothing then
+        onWithOptions "mousedown"
+        { preventDefault = True, stopPropagation = False }
+        <| Json.map DragStart
         <| Json.map2 Offset
           (Json.field "clientX" Json.float)
           (Json.field "clientY" Json.float)
+      else
+        on "mousemove"
+        <| Json.map DragTo
+        <| Json.map2 Offset
+          (Json.field "clientX" Json.float)
+          (Json.field "clientY" Json.float)
+      , onMouseUp DragStop
       ]
       <| List.map (viewTile map)
       <| tiles map
