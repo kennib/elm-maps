@@ -257,12 +257,13 @@ tiles map =
         tile = locationTile (toFloat <| ceiling bounds.zoom) bounds.center
         xTiles = List.range (floor <| -xCount/2) (ceiling <| xCount/2)
         yTiles = List.range (floor <| -yCount/2) (ceiling <| yCount/2)
+        wrapTile = wrap 0 (2^(ceiling bounds.zoom))
         tileXY x y =
           ( tileUrl
             map.tileServer
             (ceiling bounds.zoom)
-            (floor tile.x + x)
-            (floor tile.y + y)
+            (floor tile.x + x |> wrapTile)
+            (floor tile.y + y |> wrapTile)
           , Offset
             (map.width/2  + (toFloat (floor tile.x) - tile.x + toFloat x) * map.tileSize)
             (map.height/2 + (toFloat (floor tile.y) - tile.y + toFloat y) * map.tileSize)
@@ -291,7 +292,7 @@ tileLocation : Float -> Float -> Float -> GeoLocation
 tileLocation zoom x y =
   let
     n = 2 ^ zoom
-    lng_deg = x / n * 360 - 180
+    lng_deg = x / n * 360 - 180 |> wrap -180 180
     lat_rad = atan <| sinh <| pi * (1 - 2 * y / n)
     lat_deg = lat_rad * 180 / pi
     sinh x = ((e ^ x) - (e ^ -x)) / 2
@@ -304,6 +305,14 @@ tileUrl tileServer zoom x y =
     |> formatInt "{z}" zoom
     |> formatInt "{x}" x
     |> formatInt "{y}" y
+
+wrap min max n =
+  if n < min then
+    wrap min max <| n + (max-min)
+  else if n >= max then
+    wrap min max <| n - (max-min)
+  else
+    n
 
 formatInt : String -> Int -> String -> String
 formatInt replace number =
