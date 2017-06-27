@@ -6,11 +6,12 @@ import Geocoding
 import Http
 
 import Maps exposing (Msg(..), defaultOptions)
+import Maps.Bounds exposing (Bounds(..))
 
 type Msg
   = MapMsg Maps.Msg
   | GeoCode String
-  | GoToGeoCode String Maps.Bounds
+  | GoToGeoCode String Bounds
   | NoResults String
 
 apiKey = "AIzaSyCkOFxL5NF1feuebbB6PW8fP3SDg1aa6tM"
@@ -57,7 +58,7 @@ geocode place =
   Geocoding.requestForAddress apiKey place 
   |> Geocoding.send (Maybe.withDefault (NoResults place) << Maybe.map (GoToGeoCode place) << getFirstBounds)
 
-getFirstBounds : Result Http.Error Geocoding.Response -> Maybe Maps.Bounds
+getFirstBounds : Result Http.Error Geocoding.Response -> Maybe Bounds
 getFirstBounds result =
   result
   |> Result.toMaybe
@@ -66,7 +67,7 @@ getFirstBounds result =
   |> Maybe.map .geometry
   |> Maybe.map .viewport
   |> Maybe.map (\bounds ->
-    Maps.Bounds
+    Bounds
     { northEast = { lat = bounds.northeast.latitude, lng = bounds.northeast.longitude }
     , southWest = { lat = bounds.southwest.latitude, lng = bounds.southwest.longitude }
     }
