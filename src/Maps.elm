@@ -34,9 +34,14 @@ The quickest way to get up and running is to create a map with default options
 @docs view
 -}
 
+import List.Extra as List
+
+import Json.Decode as Json
+
 import Html exposing (Html, program)
 import Html.Keyed
 import Html.Attributes as Attr
+import Html.Events exposing (onWithOptions)
 
 import Maps.Map as Map exposing (Map)
 import Maps.Screen as Screen exposing (Offset, ZoomLevel)
@@ -55,11 +60,13 @@ type Msg
   | Zoom Offset ZoomLevel
   | SetBounds Bounds
 
-{-| The map's model consists of the [properties necessary to display a static map](Maps-Map#Map)
+{-| The map's model consists of the [properties necessary to display a static map](Maps-Map#Map),
+a cache of the previous map (for simulated zooming/panning before the real tiles load in)
 and the state of the map being dragged.
 -}
 type alias Model =
   { map : Map
+  , cache : List Map
   , drag : Maybe Drag
   }
 
@@ -105,6 +112,7 @@ map options =
       }
     model =
       { map = mapModel
+      , cache = []
       , drag = Nothing
       }
   in
@@ -147,12 +155,12 @@ update msg model =
     DragTo offset ->
       let
         dragState = Maybe.map (Drag.drag offset) model.drag
-        draggedMap =
+        draggedMap map =
           dragState
-          |> Maybe.map (flip Map.drag <| model.map)
-          |> Maybe.withDefault model.map
+          |> Maybe.map (flip Map.drag <| map)
+          |> Maybe.withDefault map
       in
-        ({ model | map = draggedMap, drag = dragState }, Cmd.none)
+        (updateMap draggedMap { model | drag = dragState }, Cmd.none)
     DragStop ->
       ({ model | drag = Nothing }, Cmd.none)
     Zoom offset zoom ->
@@ -162,7 +170,10 @@ update msg model =
 
 updateMap : (Map -> Map) -> Model -> Model
 updateMap update model =
-  { model | map = update model.map }
+  { model
+  | map = update model.map
+  , cache = model.map :: model.cache |> List.uniqueBy (.zoom >> ceiling)
+  }
 
 {-| -}
 subscriptions : Model -> Sub Msg
@@ -171,14 +182,29 @@ subscriptions map =
 
 {-| -}
 view : Model -> Html Msg
-view ({map, drag} as model) =
+view ({map, cache, drag} as model) =
   Html.div
     [ Attr.style
       [ ("width", toString map.width ++ "px")
       , ("height", toString map.height ++ "px")
+      , ("background-color", "#ddd")
       ]
     ]
-    [ Html.Keyed.node "div"
+    [ Html.div
+      [ Attr.style
+        [ ("position", "absolute")
+        , ("width", toString map.width ++ "px")
+        , ("height", toString map.height ++ "px")
+        , ("overflow", "hidden")
+        ]
+      , onWithOptions "mouseDown"
+        { preventDefault = True, stopPropagation = False }
+        <| Json.fail "No interaction"
+      ]
+      <| List.map (cachedTilesView map)
+      <| List.reverse
+      <| cache
+    , Html.Keyed.node "div"
       ([ Attr.style
         [ ("position", "absolute")
         , ("width", toString map.width ++ "px")
@@ -192,6 +218,13 @@ view ({map, drag} as model) =
       <| List.map (\((url, offset) as tile) -> (url, Tile.view map.tileSize tile))
       <| Map.tiles map
     ]
+
+cachedTilesView : Map -> Map -> Html Msg
+cachedTilesView map cachedMap =
+  Html.Keyed.node "div"
+    [ Attr.style <| Map.transformationStyle map.width map.height <| Map.diff map cachedMap ]
+    <| List.map (\((url, offset) as tile) -> (url, Tile.view map.tileSize tile))
+    <| Map.tiles cachedMap
 
 zoomEvents : List (Html.Attribute Msg)
 zoomEvents =

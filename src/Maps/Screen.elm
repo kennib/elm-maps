@@ -2,6 +2,7 @@ module Maps.Screen exposing
   ( Offset
   , ZoomLevel
   , offsetToTileOffset
+  , offsetFromTileOffset
   , decodeOffset
   , decodeZoom
   )
@@ -14,6 +15,7 @@ module Maps.Screen exposing
 
 # Conversions
 @docs offsetToTileOffset
+@docs offsetFromTileOffset
 
 # Event Decoders
 The following are decoders for getting Screen types from [HTML events](https://developer.mozilla.org/en-US/docs/Web/API/Event)
@@ -47,8 +49,15 @@ Note that It needs to know the size of the tiles to perform this conversion.
 -}
 offsetToTileOffset : Float -> Offset -> Tile.Offset
 offsetToTileOffset tileSize offset =
-  Offset (offset.x/tileSize) (offset.y/tileSize)
+  Tile.Offset (offset.x/tileSize) (offset.y/tileSize)
 
+{-| This function is for converting a Tile.Offset to a Screen.Offset.
+
+Note that It needs to know the size of the tiles to perform this conversion.
+-}
+offsetFromTileOffset : Float -> Offset -> Tile.Offset
+offsetFromTileOffset tileSize offset =
+  Offset (offset.x*tileSize) (offset.y*tileSize)
 
 {-| Decodes an HTML event which has an X and Y location into an Offset
 -}

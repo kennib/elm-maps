@@ -64,7 +64,7 @@ view tileSize (url, offset) =
       , ("top", toString offset.y ++ "px")
       , ("width", toString tileSize ++ "px")
       , ("height", toString tileSize ++ "px")
-      , ("background-color", "#ddd")
+      , ("background-color", "rgba(0,0,0, 0)")
       ]
     ]
     []
