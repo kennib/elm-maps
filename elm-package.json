@@ -1,5 +1,5 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "summary": "An Elm library for interactive maps",
     "repository": "https://github.com/kennib/elm-maps.git",
     "license": "BSD3",
@@ -7,11 +7,11 @@
         "src"
     ],
     "exposed-modules": [
-      "Maps",
-      "Maps.Map",
-      "Maps.LatLng",
-      "Maps.Bounds",
-      "Maps.Screen"
+        "Maps",
+        "Maps.Map",
+        "Maps.LatLng",
+        "Maps.Bounds",
+        "Maps.Screen"
     ],
     "dependencies": {
         "elm-lang/core": "5.1.1 <= v < 6.0.0",
