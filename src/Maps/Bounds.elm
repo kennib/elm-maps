@@ -4,10 +4,24 @@ module Maps.Bounds exposing
   , center
   )
 
+{-| This module defines the Bounds type for the Maps library.
+The Bounds type is used for defining a geographical area.
+
+# Definition
+@docs Bounds
+
+# Properties
+@docs zoom
+@docs center
+-}
+
 import Maps.LatLng as LatLng exposing (LatLng)
 import Maps.Screen as Screen exposing (ZoomLevel)
 import Maps.Utils exposing (wrap)
 
+{-| The Bounds type defines the bounds of a map.
+It can be a rectangular bounding box defined by two points, or a point and a zoom level.
+-}
 type Bounds
   = Bounds
     { northEast : LatLng
@@ -18,6 +32,10 @@ type Bounds
     , center : LatLng
     }
 
+{-| The zoom function calculates the zoom level necessary to contain the given Bounds.
+
+Note that the size of the tiles and map are needed to calculate the zoom level.
+-}
 zoom : Float -> Float -> Float -> Bounds -> ZoomLevel
 zoom tileSize mapWidth mapHeight bounds =
   case bounds of
@@ -39,6 +57,8 @@ zoom tileSize mapWidth mapHeight bounds =
     Centered bounds ->
       bounds.zoom
 
+{-| Calculates the center point of a given Bounds.
+-}
 center : Bounds -> LatLng
 center bounds =
   case bounds of
