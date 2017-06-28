@@ -1,16 +1,19 @@
 module Maps.Screen exposing
   ( Offset
+  , TwoFingers
   , ZoomLevel
   , offsetToTileOffset
   , offsetFromTileOffset
   , decodeOffset
   , decodeZoom
+  , decodeTwoFingers
   )
 
 {-| The Screen module defines common types and functions relating to Map events.
 
 # Definition
 @docs Offset
+@docs TwoFingers
 @docs ZoomLevel
 
 # Conversions
@@ -23,6 +26,7 @@ like the [mouse event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEve
 
 @docs decodeOffset
 @docs decodeZoom
+@docs decodeTwoFingers
 -}
 
 import Json.Decode as Json
@@ -35,6 +39,14 @@ For example the position of a mouse click, or a scroll action.
 type alias Offset =
   { x : Float
   , y : Float
+  }
+
+{-| The TwoFingers type defines the position of two fingers on the screen.
+It is used for the pinching action for zooming.
+-}
+type alias TwoFingers =
+  { length : Float
+  , center : Offset
   }
 
 {-| The level of zooming for the map.
@@ -63,9 +75,15 @@ offsetFromTileOffset tileSize offset =
 -}
 decodeOffset : Json.Decoder Offset
 decodeOffset =
-  Json.map2 Offset
-    (Json.field "clientX" Json.float)
-    (Json.field "clientY" Json.float)
+  let
+    xy = Json.map2 Offset
+      (Json.field "clientX" Json.float)
+      (Json.field "clientY" Json.float)
+  in
+    Json.oneOf
+      [ xy
+      , Json.at ["touches", "0"] xy
+      ]
 
 {-| Decodes an [HTML wheel event](https://developer.mozilla.org/en-US/docs/Web/API/WheelEvent) into a ZoomLevel
 -}
@@ -77,3 +95,21 @@ decodeZoom =
 scrollToZoom : Float -> ZoomLevel
 scrollToZoom scroll =
   scroll * 0.05
+
+{-| Decodes a touch event into a zoom level and movement offset.
+-}
+decodeTwoFingers : Json.Decoder (Maybe TwoFingers)
+decodeTwoFingers =
+  let
+    xy = Json.map2 Offset
+      (Json.field "clientX" Json.float)
+      (Json.field "clientY" Json.float)
+    twoFingers first second =
+      TwoFingers
+        (((first.x - second.x)^2 + (first.y - second.y)^2)^0.5)
+        (Offset ((first.x+second.x)/2) ((first.y+second.y)/2))
+  in
+    Json.maybe
+    <| Json.map2 twoFingers
+      (Json.at ["touches", "0"] xy)
+      (Json.at ["touches", "1"] xy)

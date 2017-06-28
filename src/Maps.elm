@@ -44,11 +44,12 @@ import Html.Attributes as Attr
 import Html.Events exposing (onWithOptions)
 
 import Maps.Map as Map exposing (Map)
-import Maps.Screen as Screen exposing (Offset, ZoomLevel)
+import Maps.Screen as Screen exposing (Offset, TwoFingers, ZoomLevel)
 import Maps.LatLng as LatLng exposing (LatLng)
 import Maps.Bounds as Bounds exposing (Bounds)
 import Maps.Tile as Tile exposing (Tile)
 import Maps.Drag as Drag exposing (Drag)
+import Maps.Pinch as Pinch exposing (Pinch)
 import Maps.Zoom as Zoom
 
 {-| The map has events for dragging, zooming and setting the bounds displayed by the map.
@@ -57,6 +58,9 @@ type Msg
   = DragStart Offset
   | DragTo Offset
   | DragStop
+  | PinchStart TwoFingers
+  | PinchTo TwoFingers
+  | PinchStop
   | Zoom Offset ZoomLevel
   | SetBounds Bounds
 
@@ -68,6 +72,7 @@ type alias Model =
   { map : Map
   , cache : List Map
   , drag : Maybe Drag
+  , pinch : Maybe Pinch
   }
 
 {-| The Options type allows you to configure the map display properties.
@@ -114,6 +119,7 @@ map options =
       { map = mapModel
       , cache = []
       , drag = Nothing
+      , pinch = Nothing
       }
   in
     { init = (model, Cmd.none)
@@ -151,10 +157,21 @@ update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     DragStart offset ->
-      ({ model | drag = Just <| Drag.start offset }, Cmd.none)
+      let
+        dragState =
+          if model.pinch == Nothing then
+            Just <| Drag.start offset
+          else
+            Nothing
+       in
+         ({ model | drag = dragState }, Cmd.none)
     DragTo offset ->
       let
-        dragState = Maybe.map (Drag.drag offset) model.drag
+        dragState =
+          if model.pinch == Nothing then
+            Maybe.map (Drag.drag offset) model.drag
+          else
+            Nothing
         draggedMap map =
           dragState
           |> Maybe.map (flip Map.drag <| map)
@@ -163,6 +180,19 @@ update msg model =
         (updateMap draggedMap { model | drag = dragState }, Cmd.none)
     DragStop ->
       ({ model | drag = Nothing }, Cmd.none)
+    PinchStart fingers ->
+      ({ model | pinch = Just <| Pinch.start fingers }, Cmd.none)
+    PinchTo fingers ->
+      ({ model | pinch = Maybe.map (Pinch.pinch fingers) model.pinch }, Cmd.none)
+    PinchStop ->
+      let
+        zoom = Maybe.map (Zoom.fromPinch model.map.width model.map.height) model.pinch
+        pinchedMap map =
+          case zoom of
+            Just (zoom, offset) -> Map.zoomTo zoom offset map
+            Nothing -> map
+      in
+        (updateMap pinchedMap { model | pinch = Nothing }, Cmd.none)
     Zoom offset zoom ->
       (updateMap (Map.zoomTo zoom offset) model, Cmd.none)
     SetBounds bounds ->
@@ -182,53 +212,59 @@ subscriptions map =
 
 {-| -}
 view : Model -> Html Msg
-view ({map, cache, drag} as model) =
+view ({map, cache, pinch, drag} as model) =
   Html.div
-    [ Attr.style
+    ([ Attr.style
       [ ("width", toString map.width ++ "px")
       , ("height", toString map.height ++ "px")
       , ("background-color", "#ddd")
       ]
     ]
-    [ Html.div
-      [ Attr.style
-        [ ("position", "absolute")
-        , ("width", toString map.width ++ "px")
-        , ("height", toString map.height ++ "px")
-        , ("overflow", "hidden")
+    ++ zoomEvents map.zoom
+    )
+    <|
+    let
+      zoom = Maybe.map (Zoom.fromPinch map.width map.height) pinch
+      zoomedMap = Maybe.withDefault map <| Maybe.map (\(zoom, offset) -> Map.zoomTo zoom offset map) zoom
+      transforms = Map.diff zoomedMap map
+    in
+      [ Html.div
+        [ Attr.style
+          [ ("position", "absolute")
+          , ("width", toString map.width ++ "px")
+          , ("height", toString map.height ++ "px")
+          , ("overflow", "hidden")
+          ]
+        , onWithOptions "mouseDown"
+          { preventDefault = True, stopPropagation = False }
+          <| Json.fail "No interaction"
         ]
-      , onWithOptions "mouseDown"
-        { preventDefault = True, stopPropagation = False }
-        <| Json.fail "No interaction"
-      ]
-      <| List.map (cachedTilesView map)
-      <| List.reverse
-      <| cache
-    , Html.Keyed.node "div"
-      ([ Attr.style
-        [ ("position", "absolute")
-        , ("width", toString map.width ++ "px")
-        , ("height", toString map.height ++ "px")
-        , ("overflow", "hidden")
+        <| List.map (\cachedMap -> tilesView (Map.diff zoomedMap cachedMap) cachedMap)
+        <| List.reverse
+        <| cache
+      , Html.div
+        ([ Attr.style
+          [ ("position", "absolute")
+          , ("width", toString map.width ++ "px")
+          , ("height", toString map.height ++ "px")
+          , ("overflow", "hidden")
+          ]
+        ] ++ dragEvents drag
+        )
+        [ tilesView transforms map
         ]
       ]
-      ++ zoomEvents
-      ++ dragEvents drag
-      )
-      <| List.map (\((url, offset) as tile) -> (url, Tile.view map.tileSize tile))
-      <| Map.tiles map
-    ]
 
-cachedTilesView : Map -> Map -> Html Msg
-cachedTilesView map cachedMap =
+tilesView : List Map.Transformation -> Map -> Html Msg
+tilesView transforms map =
   Html.Keyed.node "div"
-    [ Attr.style <| Map.transformationStyle map.width map.height <| Map.diff map cachedMap ]
+    [ Attr.style <| Map.transformationStyle map.width map.height <| transforms ]
     <| List.map (\((url, offset) as tile) -> (url, Tile.view map.tileSize tile))
-    <| Map.tiles cachedMap
+    <| Map.tiles map
 
-zoomEvents : List (Html.Attribute Msg)
-zoomEvents =
-  Zoom.events { zoom = Zoom }
+zoomEvents : ZoomLevel -> List (Html.Attribute Msg)
+zoomEvents zoom =
+  Zoom.events { zoom = Zoom, pinchStart = PinchStart, pinchTo = PinchTo, pinchStop = PinchStop } zoom
 
 dragEvents : Maybe Drag -> List (Html.Attribute Msg)
 dragEvents drag =

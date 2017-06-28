@@ -43,7 +43,8 @@ offset drag =
 
 events : EventOptions msg -> Maybe Drag -> List (Html.Attribute msg)
 events ({dragStart, dragTo, dragStop}) drag =
-  [ if drag == Nothing then
+  [ -- Mouse
+    if drag == Nothing then
       onWithOptions "mousedown"
       { defaultOptions | preventDefault = True }
       <| Json.map dragStart
@@ -52,5 +53,21 @@ events ({dragStart, dragTo, dragStop}) drag =
       on "mousemove"
       <| Json.map dragTo
       <| Screen.decodeOffset
-  , onMouseUp dragStop
+  , -- Mouse
+    onMouseUp dragStop
+  , -- Mobile
+    if drag == Nothing then
+      onWithOptions "touchstart"
+      { defaultOptions | preventDefault = True }
+      <| Json.map dragStart
+      <| Screen.decodeOffset
+    else
+      onWithOptions "touchmove"
+      { defaultOptions | preventDefault = True }
+      <| Json.map dragTo
+      <| Screen.decodeOffset
+  , -- Mobile
+    onWithOptions "touchend"
+    { defaultOptions | preventDefault = True }
+    <| Json.succeed dragStop
   ]
