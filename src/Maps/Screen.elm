@@ -4,6 +4,8 @@ module Maps.Screen exposing
   , ZoomLevel
   , offsetToTileOffset
   , offsetFromTileOffset
+  , offsetToLatLng
+  , offsetFromLatLng
   , decodeOffset
   , decodeZoom
   , decodeTwoFingers
@@ -19,6 +21,8 @@ module Maps.Screen exposing
 # Conversions
 @docs offsetToTileOffset
 @docs offsetFromTileOffset
+@docs offsetToLatLng
+@docs offsetFromLatLng
 
 # Event Decoders
 The following are decoders for getting Screen types from [HTML events](https://developer.mozilla.org/en-US/docs/Web/API/Event)
@@ -31,6 +35,8 @@ like the [mouse event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEve
 
 import Json.Decode as Json
 
+import Maps.Utils exposing (wrap)
+import Maps.LatLng exposing (LatLng)
 import Maps.Tile as Tile
 
 {-| The Offset type defines an offset as it relates pixels making up a map.
@@ -57,19 +63,50 @@ type alias ZoomLevel = Float
 {-| This function is for converting a Screen.Offset to a Tile.Offset.
 It is used to figure out which tile, and subsequently which geographic point, a user clicked on for example.
 
-Note that It needs to know the size of the tiles to perform this conversion.
+Note that it needs to know the zoom level, size of the tiles, size of the map and position of the map to perform this conversion.
 -}
-offsetToTileOffset : Float -> Offset -> Tile.Offset
-offsetToTileOffset tileSize offset =
-  Tile.Offset (offset.x/tileSize) (offset.y/tileSize)
+offsetToTileOffset : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Offset -> Tile.Offset
+offsetToTileOffset {tileSize, zoom, width, height, center} offset =
+  let
+    centerTile = Tile.fromLatLng (toFloat <| ceiling zoom) center
+    centerOffset = Offset (offset.x - width/2) (offset.y - height/2)
+  in
+    Tile.Offset
+      (centerTile.x + centerOffset.x/tileSize)
+      (centerTile.y + centerOffset.y/tileSize)
 
 {-| This function is for converting a Tile.Offset to a Screen.Offset.
 
-Note that It needs to know the size of the tiles to perform this conversion.
+Note that it needs to know the zoom level, size of the tiles, size of the map and position of the map to perform this conversion.
 -}
-offsetFromTileOffset : Float -> Offset -> Tile.Offset
-offsetFromTileOffset tileSize offset =
-  Offset (offset.x*tileSize) (offset.y*tileSize)
+offsetFromTileOffset : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Tile.Offset -> Offset
+offsetFromTileOffset {tileSize, zoom, width, height, center} tile =
+  let
+    centerTile = Tile.fromLatLng (toFloat <| ceiling zoom) center
+  in
+    Offset
+      ((tile.x - centerTile.x)*tileSize + width/2)
+      ((tile.y - centerTile.y)*tileSize + height/2)
+
+{-| This function is for converting a Screen.Offset to a LatLng.
+
+Note that it needs to know the zoom level, size of the tiles, size of the map and position of the map to perform this conversion.
+-}
+offsetToLatLng : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Offset -> LatLng
+offsetToLatLng ({zoom} as map) offset =
+  offset
+  |> offsetToTileOffset map
+  |> \tile -> Tile.toLatLng (toFloat <| ceiling zoom) tile.x tile.y
+
+{-| This function is for converting a LatLng to a Screen.Offset.
+
+Note that it needs to know the zoom level, size of the tiles, size of the map and position of the map to perform this conversion.
+-}
+offsetFromLatLng : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> LatLng -> Offset
+offsetFromLatLng ({tileSize, zoom} as map) latLng =
+    latLng
+    |> Tile.fromLatLng (toFloat <| ceiling zoom)
+    |> offsetFromTileOffset map
 
 {-| Decodes an HTML event which has an X and Y location into an Offset
 -}

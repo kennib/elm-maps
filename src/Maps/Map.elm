@@ -76,15 +76,9 @@ type Transformation
 move : Screen.Offset -> Map -> Map
 move offset map =
   let
-    mapTile = Tile.fromLatLng (toFloat <| ceiling map.zoom) map.center
-    tile = Screen.offsetToTileOffset map.tileSize offset
-    center =
-      Tile.toLatLng
-        (toFloat <| ceiling map.zoom)
-        (mapTile.x - tile.x)
-        (mapTile.y - tile.y)
+    centerOffset offset = Screen.Offset (map.width/2 - offset.x) (map.height/2 - offset.y)
   in
-    { map | center = center }
+    { map | center = Screen.offsetToLatLng map <| centerOffset offset }
 
 {-| Zooms the map in or out from the center of the map.
 -}
@@ -114,7 +108,7 @@ viewBounds bounds map =
 -}
 drag : Drag -> Map -> Map 
 drag dragState map =
-  move (Drag.offset dragState) map
+    move (Drag.offset dragState) map
 
 {-| Finds the transformations between two maps.
 Useful for figuring out how to transform cached tiles into temporary substitutes of loading tiles.
@@ -122,15 +116,12 @@ Useful for figuring out how to transform cached tiles into temporary substitutes
 diff : Map -> Map -> List Transformation
 diff newMap oldMap =
   let
-    screenOffset map =
-      Screen.offsetFromTileOffset map.tileSize
-      << Tile.fromLatLng (toFloat <| ceiling map.zoom)
     sub a b = { x = a.x - b.x, y = a.y - b.y }
   in
     [ Moved
       <| sub
-      (screenOffset newMap oldMap.center)
-      (screenOffset newMap newMap.center)
+      (Screen.offsetFromLatLng newMap oldMap.center)
+      (Screen.offsetFromLatLng newMap newMap.center)
     , Scaled
       <| (\zoom -> 2^zoom)
       <| toFloat
