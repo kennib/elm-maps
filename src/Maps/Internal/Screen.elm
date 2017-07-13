@@ -1,4 +1,4 @@
-module Maps.Screen exposing
+module Maps.Internal.Screen exposing
   ( Offset
   , TwoFingers
   , ZoomLevel
@@ -35,9 +35,9 @@ like the [mouse event](https://developer.mozilla.org/en-US/docs/Web/API/MouseEve
 
 import Json.Decode as Json
 
-import Maps.Utils exposing (wrap)
-import Maps.LatLng exposing (LatLng)
-import Maps.Tile as Tile
+import Maps.Internal.Utils exposing (wrap)
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Tile as Tile
 
 {-| The Offset type defines an offset as it relates pixels making up a map.
 For example the position of a mouse click, or a scroll action.

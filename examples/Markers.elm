@@ -5,10 +5,10 @@ import Html.Events exposing (onInput)
 import Geocoding
 import Http
 
-import Maps exposing (Msg(..), defaultOptions)
-import Maps.Bounds exposing (Bounds(..))
-import Maps.LatLng exposing (LatLng)
-import Maps.Marker exposing (Marker(..))
+import Maps exposing (Msg)
+import Maps.Geo exposing (LatLng, Bounds)
+import Maps.Marker as Marker exposing (Marker)
+import Maps.Map as Map
 
 type Msg
   = MapMsg Maps.Msg
@@ -25,33 +25,28 @@ main = program
   , view = view
   }
 
-map =
-  Maps.map
-  { defaultOptions
-  | height = 600
-  , width = 1000
-  }
-
 init =
-  map.init
-  |> Tuple.mapFirst (\map -> { map = map, place = "" })
-  |> Tuple.mapSecond (Cmd.map MapMsg)
+  ( { map = Maps.defaultModel
+      |> Maps.updateMap (Map.setHeight 600)
+      |> Maps.updateMap (Map.setWidth 1000)
+    , place = ""
+    }
+  , Cmd.none)
 
 update msg model =
   case msg of
     MapMsg mapMsg ->
-      map.update mapMsg model.map
+      Maps.update mapMsg model.map
       |> Tuple.mapFirst (\map -> { model | map = map })
       |> Tuple.mapSecond (Cmd.map MapMsg)
     GeoCode place ->
       ({ model | place = place }, geocode place)
     GoToGeoCode place (bounds, latLng) ->
       if place == model.place then
-        map.update (SetBounds bounds) model.map
-        |> Tuple.first
-        |> map.update (SetMarkers [DefaultMarker latLng])
-        |> Tuple.mapFirst (\map -> { model | map = map })
-        |> Tuple.mapSecond (Cmd.map MapMsg)
+        model.map
+        |> Maps.updateMap (Map.viewBounds bounds)
+        |> Maps.updateMarkers (\_ -> [Marker.create latLng])
+        |> \map -> ({ model | map = map }, Cmd.none)
       else
         (model, Cmd.none)
     NoResults place ->
@@ -72,7 +67,7 @@ getFirstLocation result =
   |> Maybe.map (\geometry ->
     let
       bounds =
-        Bounds
+        Maps.Geo.bounds
         { northEast = { lat = geometry.viewport.northeast.latitude, lng = geometry.viewport.northeast.longitude }
         , southWest = { lat = geometry.viewport.southwest.latitude, lng = geometry.viewport.southwest.longitude }
         }
@@ -85,12 +80,12 @@ getFirstLocation result =
   )
 
 subscriptions model =
-  Sub.map MapMsg <| map.subscriptions model.map
+  Sub.map MapMsg <| Maps.subscriptions model.map
 
 view model =
   Html.div
     []
-    [ Html.map MapMsg <| map.view model.map
+    [ Html.map MapMsg <| Maps.view model.map
     , Html.input
       [ onInput GeoCode
       ]

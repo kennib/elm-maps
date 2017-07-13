@@ -5,8 +5,9 @@ import Html.Events exposing (onInput)
 import Geocoding
 import Http
 
-import Maps exposing (Msg(..), defaultOptions)
-import Maps.Bounds exposing (Bounds(..))
+import Maps exposing (Msg)
+import Maps.Geo exposing (Bounds)
+import Maps.Map as Map
 
 type Msg
   = MapMsg Maps.Msg
@@ -23,31 +24,27 @@ main = program
   , view = view
   }
 
-map =
-  Maps.map
-  { defaultOptions
-  | height = 600
-  , width = 1000
-  }
-
 init =
-  map.init
-  |> Tuple.mapFirst (\map -> { map = map, place = "" })
-  |> Tuple.mapSecond (Cmd.map MapMsg)
+  ( { map = Maps.defaultModel
+      |> Maps.updateMap (Map.setHeight 600)
+      |> Maps.updateMap (Map.setWidth 1000)
+    , place = ""
+    }
+  , Cmd.none)
 
 update msg model =
   case msg of
     MapMsg mapMsg ->
-      map.update mapMsg model.map
+      Maps.update mapMsg model.map
       |> Tuple.mapFirst (\map -> { model | map = map })
       |> Tuple.mapSecond (Cmd.map MapMsg)
     GeoCode place ->
       ({ model | place = place }, geocode place)
     GoToGeoCode place bounds ->
       if place == model.place then
-        map.update (SetBounds bounds) model.map
-        |> Tuple.mapFirst (\map -> { model | map = map })
-        |> Tuple.mapSecond (Cmd.map MapMsg)
+        model.map
+        |> Maps.updateMap (Map.viewBounds bounds)
+        |> \map -> ({ model | map = map }, Cmd.none)
       else
         (model, Cmd.none)
     NoResults place ->
@@ -67,19 +64,19 @@ getFirstBounds result =
   |> Maybe.map .geometry
   |> Maybe.map .viewport
   |> Maybe.map (\bounds ->
-    Bounds
+    Maps.Geo.bounds
     { northEast = { lat = bounds.northeast.latitude, lng = bounds.northeast.longitude }
     , southWest = { lat = bounds.southwest.latitude, lng = bounds.southwest.longitude }
     }
   )
 
 subscriptions model =
-  Sub.map MapMsg <| map.subscriptions model.map
+  Sub.map MapMsg <| Maps.subscriptions model.map
 
 view model =
   Html.div
     []
-    [ Html.map MapMsg <| map.view model.map
+    [ Html.map MapMsg <| Maps.view model.map
     , Html.input
       [ onInput GeoCode
       ]

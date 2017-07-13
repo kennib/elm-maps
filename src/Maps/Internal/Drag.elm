@@ -1,4 +1,4 @@
-module Maps.Drag exposing
+module Maps.Internal.Drag exposing
   ( Drag
   , EventOptions
   , start
@@ -12,7 +12,7 @@ import Json.Decode as Json
 import Html
 import Html.Events exposing (on, onWithOptions, defaultOptions, onMouseUp)
 
-import Maps.Screen as Screen
+import Maps.Internal.Screen as Screen
 
 type Drag
   = StartDrag Screen.Offset

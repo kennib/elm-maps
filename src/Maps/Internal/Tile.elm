@@ -1,4 +1,4 @@
-module Maps.Tile exposing
+module Maps.Internal.Tile exposing
   ( Tile
   , Offset
   , url
@@ -12,8 +12,8 @@ import Regex exposing (HowMany(..), regex)
 import Html exposing (Html)
 import Html.Attributes as Attr
 
-import Maps.LatLng as LatLng exposing (LatLng)
-import Maps.Utils exposing (wrap, sinh)
+import Maps.Internal.LatLng as LatLng exposing (LatLng)
+import Maps.Internal.Utils exposing (wrap, sinh)
 
 type alias Url = String
 type alias Tile = (Url, Offset)

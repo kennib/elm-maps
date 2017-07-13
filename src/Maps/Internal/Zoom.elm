@@ -1,4 +1,4 @@
-module Maps.Zoom exposing
+module Maps.Internal.Zoom exposing
   ( EventOptions
   , fromPinch
   , events
@@ -9,8 +9,8 @@ import Json.Decode as Json
 import Html
 import Html.Events exposing (on, onWithOptions)
 
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.Pinch as Pinch exposing (Pinch)
+import Maps.Internal.Screen as Screen exposing (ZoomLevel)
+import Maps.Internal.Pinch as Pinch exposing (Pinch)
 
 type alias EventOptions msg =
   { zoom : Screen.Offset -> ZoomLevel -> msg

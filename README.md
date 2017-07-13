@@ -9,7 +9,12 @@ It's very simple to get create a map with this library
     import Maps
     import Html exposing (program)
 
-    main = program <| Maps.map Maps.defaultOptions
+    main = program
+		{ init = (Maps.defaultModel, Cmd.none)
+		, subscriptions = Maps.subscriptions
+		, update = Maps.update
+		, view = Maps.view
+		}
 ```
 
 Its a bit trickier when we try and merge events and state with other programs.

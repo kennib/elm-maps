@@ -1,4 +1,4 @@
-module Maps.Bounds exposing
+module Maps.Internal.Bounds exposing
   ( Bounds(..)
   , zoom
   , center
@@ -15,9 +15,9 @@ The Bounds type is used for defining a geographical area.
 @docs center
 -}
 
-import Maps.LatLng as LatLng exposing (LatLng)
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.Utils exposing (wrap)
+import Maps.Internal.LatLng as LatLng exposing (LatLng)
+import Maps.Internal.Screen as Screen exposing (ZoomLevel)
+import Maps.Internal.Utils exposing (wrap)
 
 {-| The Bounds type defines the bounds of a map.
 It can be a rectangular bounding box defined by two points, or a point and a zoom level.

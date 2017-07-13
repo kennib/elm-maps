@@ -1,4 +1,4 @@
-module Maps.Utils exposing
+module Maps.Internal.Utils exposing
   ( wrap
   , sinh
   , cartesianMap

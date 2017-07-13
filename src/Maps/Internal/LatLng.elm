@@ -1,4 +1,4 @@
-module Maps.LatLng exposing
+module Maps.Internal.LatLng exposing
   ( LatLng
   , sydney
   )

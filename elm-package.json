@@ -9,9 +9,8 @@
     "exposed-modules": [
         "Maps",
         "Maps.Map",
-        "Maps.LatLng",
-        "Maps.Bounds",
-        "Maps.Screen"
+        "Maps.Marker",
+        "Maps.Convert"
     ],
     "dependencies": {
         "elm-community/list-extra": "6.1.0 <= v < 7.0.0",

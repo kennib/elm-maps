@@ -1,11 +1,11 @@
-module Maps.Pinch exposing
+module Maps.Internal.Pinch exposing
   ( Pinch
   , start
   , pinch
   , startEnd
   )
 
-import Maps.Screen as Screen exposing (TwoFingers)
+import Maps.Internal.Screen as Screen exposing (TwoFingers)
 
 type Pinch
   = StartPinch TwoFingers

@@ -1,176 +1,146 @@
 module Maps.Map exposing
   ( Map
-  , Transformation
+  , setTileServer
+  , setWidth
+  , setHeight
+  , setTileSize
   , move
+  , moveTo
+  , setZoom
   , zoom
   , zoomTo
   , viewBounds
-  , drag
-  , diff
-  , tiles
-  , transformationStyle
   )
 
-{-| This module defines the Map type and functions.
-The Map type is used for configuring the view of the map.
+{-| Functions for manipulating the Map.
 
-# Definitions
 @docs Map
 
-# Transformations
+# Setters
+The setters can be used to modify a map
+
+For example, MapBox tiles on a large map:
+
+    map
+    |> setTileServer ("https://api.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token=" ++ accessToken)
+    |> setWidth 1200
+    |> setHeight 800
+
+@docs setTileServer
+@docs setWidth
+@docs setHeight
+@docs setTileSize
+
+# Map Movement and Zooming
 @docs move
+@docs moveTo
+@docs setZoom
 @docs zoom
 @docs zoomTo
 @docs viewBounds
-@docs drag
-
-# Map Tiles
-@docs tiles
-
-# Map Cache
-@docs diff
-@docs Transformation
-@docs transformationStyle
 -}
 
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.LatLng as LatLng exposing (LatLng)
-import Maps.Bounds as Bounds exposing (Bounds)
-import Maps.Tile as Tile exposing (Tile)
-import Maps.Drag as Drag exposing (Drag)
-import Maps.Zoom as Zoom
-import Maps.Utils exposing (wrap, cartesianMap)
+import Maps.Internal.OpaqueTypes as OpaqueTypes exposing (Map(..), opaqueMap)
+import Maps.Geo
+import Maps.Internal.Map as Map
+import Maps.Internal.Screen as Screen
 
-{-| The Map type stores the properties neccessary for displaying a map.
-
-The tileServer property is a URL template of the form
-
-    "http://somedomain.com/blabla/{z}/{x}/{y}.png"
-
-Where {z} is the zoom level and {x}/{y} are the x/y tile coordinates.
-
-The zoom and center define the area being viewed.
-
-The width and height define the width and height of the map in pixels.
-
-The tileSize defines the size of an individual tile in pixels (this is usually 256px).
+{-| The map type contains all the information necessary to display a map on the screen.
+The map type is opaque, so use the functions in this module to maniuplate the map.
 -}
-type alias Map =
-  { tileServer : String
-  , zoom : ZoomLevel
-  , center : LatLng
-  , width : Float
-  , height : Float
-  , tileSize : Float
-  }
+type alias Map = OpaqueTypes.Map
 
-{-| The transformations that account for the differences in placement and scale of tiles of a map.
-Used for displaying the tile cache.
+{-| Set the tile server.
+
+The format is a URL with {x} {y} {z} placeholders for the x, y and zoom coordinates.
 -}
-type Transformation
-  = Moved Screen.Offset
-  | Scaled Float
+setTileServer : String -> Map -> Map
+setTileServer tileServer = opaqueMap <| Map.setTileServer tileServer
 
-{-| Moves the map the number of pixels given by the offset.
+{-| Set the width, as displayed on the screen, of a given Map.
+-}
+setWidth : Float -> Map -> Map
+setWidth width = opaqueMap <| Map.setWidth width
+
+{-| Set the height, as displayed on the screen, of a given Map.
+-}
+setHeight : Float -> Map -> Map
+setHeight height = opaqueMap <| Map.setHeight height
+
+{-| Set the width/height in px of a tile.
+Note, this is dependent on the tile server, and the default of 256px is almost always correct.
+-}
+setTileSize : Float -> Map -> Map
+setTileSize tileSize = opaqueMap <| Map.setTileSize tileSize
+
+{-| Move the map a given number of pixels in the x and y dimensions.
+
+For example, up 10px and right 10px:
+
+    map
+    |> move { x = 10, y = -10 }
 -}
 move : Screen.Offset -> Map -> Map
-move offset map =
-  let
-    centerOffset offset = Screen.Offset (map.width/2 - offset.x) (map.height/2 - offset.y)
-  in
-    { map | center = Screen.offsetToLatLng map <| centerOffset offset }
+move offset = opaqueMap <| Map.move offset
 
-{-| Zooms the map in or out from the center of the map.
--}
-zoom : ZoomLevel -> Map -> Map
-zoom zoomLevel map =
-  { map | zoom = min 19 <| max 0 <| map.zoom + zoomLevel }
+{-| Move the center of the map to a specific location.
 
-{-| Zooms the map in or out from the point given.
--}
-zoomTo : ZoomLevel -> Screen.Offset -> Map -> Map
-zoomTo zoomLevel offset map =
-  map
-  |> move { x = map.width/2 - offset.x, y = map.height/2 - offset.y }
-  |> zoom zoomLevel
-  |> move { x = -(map.width/2 - offset.x), y = -(map.height/2 - offset.y) }
+For example, move the map to Shanghai:
 
-{-| Moves the map to display the entire bounds given.
--}
-viewBounds : Bounds -> Map -> Map
-viewBounds bounds map =
-  let
-    zoom = Bounds.zoom map.tileSize map.width map.height bounds
-  in
-    { map | zoom = zoom, center = Bounds.center bounds }
+    map
+    |> moveTo (Maps.Geo.LatLng 31.267401 121.522179)
+ -}
+moveTo : Maps.Geo.LatLng -> Map -> Map
+moveTo latLng = opaqueMap <| Map.moveTo latLng
 
-{-| Applies a drag (like a mouse drag) to the map
--}
-drag : Drag -> Map -> Map 
-drag dragState map =
-    move (Drag.offset dragState) map
+{-| Sets the zoom to a specific level
 
-{-| Finds the transformations between two maps.
-Useful for figuring out how to transform cached tiles into temporary substitutes of loading tiles.
--}
-diff : Map -> Map -> List Transformation
-diff newMap oldMap =
-  let
-    sub a b = { x = a.x - b.x, y = a.y - b.y }
-  in
-    [ Moved
-      <| sub
-      (Screen.offsetFromLatLng newMap oldMap.center)
-      (Screen.offsetFromLatLng newMap newMap.center)
-    , Scaled
-      <| (\zoom -> 2^zoom)
-      <| toFloat
-      <| (-)
-      (ceiling newMap.zoom)
-      (ceiling oldMap.zoom)
-    ]
+For example, zoom all the way out
 
-{-| Returns the list of tiles necessary to fetch to display the map.
--}
-tiles : Map -> List Tile
-tiles map =
-  let
-    xCount = map.width/map.tileSize
-    yCount = map.height/map.tileSize
-    tile = Tile.fromLatLng (toFloat <| ceiling map.zoom) map.center
-    xTiles = List.range (floor <| -xCount/2) (ceiling <| xCount/2)
-    yTiles = List.range (floor <| -yCount/2) (ceiling <| yCount/2)
-    wrapTile = wrap 0 (2^(ceiling map.zoom))
-    tileXY x y =
-      ( Tile.url
-        map.tileServer
-        (ceiling map.zoom)
-        (floor tile.x + x |> wrapTile)
-        (floor tile.y + y |> wrapTile)
-      , Tile.Offset
-        (map.width/2  + (toFloat (floor tile.x) - tile.x + toFloat x) * map.tileSize)
-        (map.height/2 + (toFloat (floor tile.y) - tile.y + toFloat y) * map.tileSize)
-      )
-  in
-    cartesianMap tileXY xTiles yTiles
-      |> List.concat
+    map
+    |> zoom 0
 
-{-| Returns a list of CSS properties/values for transforming map tiles.
+Or all the way in:
+
+    map
+    |> zoom 19
 -}
-transformationStyle : Float -> Float -> List Transformation -> List (String, String)
-transformationStyle mapWidth mapHeight transforms =
-  let
-    transformations transform =
-      case transform of
-        Moved offset ->
-          "translate("++toString offset.x++"px, "++toString offset.y++"px)"
-        Scaled scale ->
-          "scale("++toString scale++")"
-    style =
-      transforms
-      |> List.map transformations
-      |> String.join " "
-  in
-    [ ("transform-origin", toString (mapWidth/2)++"px "++toString (mapHeight/2)++"px")
-    , ("transform", style)
-    ]
+setZoom : Float -> Map -> Map
+setZoom zoomLevel = opaqueMap <| Map.setZoom zoomLevel
+
+{-| Zoom into the center of the map.
+
+For example zoom out two levels:
+
+    map
+    |> zoom -2
+-}
+zoom : Float -> Map -> Map
+zoom zoomLevel = opaqueMap <| Map.zoom zoomLevel
+
+{-| Zoom into an x,y co-ordinate on the map.
+
+For example, zoom into the top left corner of the map:
+
+    map
+    |> zoom 1 { x = 0, y = 0}
+-}
+zoomTo : Float -> Screen.Offset -> Map -> Map
+zoomTo zoom offset = opaqueMap <| Map.zoomTo zoom offset
+
+{-| Move and zoom the map to cover given the bounds.
+
+For example, view th bounds of Madagascar:
+
+    let
+      madagascar =
+        Maps.Geo.bounds
+          (Map.Geo.LatLng -11.9519639 50.48377989999999)
+          (Maps.Geo.LatLng -25.6065157 43.1851395)
+    in
+      map
+      |> viewBounds madagascar
+
+-}
+viewBounds : Maps.Geo.Bounds -> Map -> Map
+viewBounds bounds = opaqueMap <| Map.viewBounds bounds

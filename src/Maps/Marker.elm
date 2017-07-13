@@ -1,34 +1,35 @@
 module Maps.Marker exposing
-  ( Marker(..)
-  , view
+  ( Marker
+  , create
   )
 
-import Html exposing (Html)
-import Html.Attributes as Attr
+{-| Markers are for displaying geographic locations on the map.
 
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.LatLng as LatLng exposing (LatLng)
+@docs Marker
 
-type Marker
-  = DefaultMarker LatLng
+# Create a marker
+@docs create
 
-view : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Marker -> Html msg
-view map marker =
-  case marker of
-    DefaultMarker latLng ->
-      let
-        offset = Screen.offsetFromLatLng map latLng
-      in
-        Html.span
-          [ Attr.style
-            [ ("position", "absolute")
-            , ("left", toString offset.x ++ "px")
-            , ("top", toString offset.y ++ "px")
-            , ("display", "inline-block")
-            , ("width", "10px")
-            , ("height", "16px")
-            , ("background-color", "red")
-            ]
-          ]
-          [
-          ]
+-}
+
+import Maps.Geo
+import Maps.Internal.Marker as Marker exposing (Marker(..))
+
+{-| There is currently one type of marker:
+
+ * A default marker
+-}
+type alias Marker = Marker.Marker
+
+
+{-| Create a default style of marker at the given latitude/longitude.
+
+    import Maps.Marker
+    import Maps.Geo
+
+    newYork = Maps.Geo.latLng 40.730610 -73.935242
+    newYorkMarker = Maps.Marker.create newYork
+
+-}
+create : Maps.Geo.LatLng -> Marker
+create = Marker.DefaultMarker

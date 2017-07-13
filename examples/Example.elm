@@ -2,7 +2,11 @@ module Example exposing (..)
 
 import Html exposing (program)
 
-import Maps exposing (map)
+import Maps
 
 main = program
-  <| map Maps.defaultOptions
+  { init = (Maps.defaultModel, Cmd.none)
+  , subscriptions = Maps.subscriptions
+  , update = Maps.update
+  , view = Maps.view
+  }
