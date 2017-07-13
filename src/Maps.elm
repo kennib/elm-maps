@@ -47,6 +47,7 @@ import Maps.Map as Map exposing (Map)
 import Maps.Screen as Screen exposing (Offset, TwoFingers, ZoomLevel)
 import Maps.LatLng as LatLng exposing (LatLng)
 import Maps.Bounds as Bounds exposing (Bounds)
+import Maps.Marker as Marker exposing (Marker)
 import Maps.Tile as Tile exposing (Tile)
 import Maps.Drag as Drag exposing (Drag)
 import Maps.Pinch as Pinch exposing (Pinch)
@@ -63,6 +64,9 @@ type Msg
   | PinchStop
   | Zoom Offset ZoomLevel
   | SetBounds Bounds
+  | AddMarker Marker
+  | RemoveMarker Marker
+  | SetMarkers (List Marker)
 
 {-| The map's model consists of the [properties necessary to display a static map](Maps-Map#Map),
 a cache of the previous map (for simulated zooming/panning before the real tiles load in)
@@ -71,6 +75,7 @@ and the state of the map being dragged.
 type alias Model =
   { map : Map
   , cache : List Map
+  , markers : List Marker
   , drag : Maybe Drag
   , pinch : Maybe Pinch
   }
@@ -118,6 +123,7 @@ map options =
     model =
       { map = mapModel
       , cache = []
+      , markers = []
       , drag = Nothing
       , pinch = Nothing
       }
@@ -197,6 +203,12 @@ update msg model =
       (updateMap (Map.zoomTo zoom offset) model, Cmd.none)
     SetBounds bounds ->
       (updateMap (Map.viewBounds bounds) model, Cmd.none)
+    AddMarker marker ->
+      ({ model | markers = marker :: model.markers }, Cmd.none)
+    RemoveMarker marker ->
+      ({ model | markers = List.remove marker model.markers }, Cmd.none)
+    SetMarkers markers ->
+      ({ model | markers = markers }, Cmd.none)
 
 updateMap : (Map -> Map) -> Model -> Model
 updateMap update model =
@@ -212,7 +224,7 @@ subscriptions map =
 
 {-| -}
 view : Model -> Html Msg
-view ({map, cache, pinch, drag} as model) =
+view ({map, cache, markers, pinch, drag} as model) =
   Html.div
     ([ Attr.style
       [ ("width", toString map.width ++ "px")
@@ -253,6 +265,17 @@ view ({map, cache, pinch, drag} as model) =
         )
         [ tilesView transforms map
         ]
+      , Html.div
+        [ Attr.style
+          [ ("position", "absolute")
+          , ("width", toString map.width ++ "px")
+          , ("height", toString map.height ++ "px")
+          , ("overflow", "hidden")
+          , ("pointer-events", "none")
+          ]
+        ]
+        <| List.map (Marker.view zoomedMap)
+        <| markers
       ]
 
 tilesView : List Map.Transformation -> Map -> Html Msg
