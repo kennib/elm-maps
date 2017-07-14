@@ -12,9 +12,9 @@ import Shrink
 import Random.Pcg as Random
 import Lazy.List exposing ((:::), empty)
 
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.LatLng exposing (LatLng)
-import Maps.Map exposing (..)
+import Maps.Internal.Screen as Screen exposing (ZoomLevel)
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Map exposing (..)
 
 offset : Fuzzer Screen.Offset
 offset =

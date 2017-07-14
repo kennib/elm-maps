@@ -7,8 +7,8 @@ import Test exposing (..)
 import Fuzzers exposing (..)
 import Expects exposing (..)
 
-import Maps.LatLng exposing (LatLng)
-import Maps.Tile exposing (..)
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Tile exposing (..)
 
 conversionsTest : Test
 conversionsTest =

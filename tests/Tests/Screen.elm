@@ -7,9 +7,9 @@ import Test exposing (..)
 import Fuzzers exposing (..)
 import Expects exposing (..)
 
-import Maps.LatLng exposing (LatLng)
-import Maps.Utils exposing (wrap)
-import Maps.Screen exposing (..)
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Utils exposing (wrap)
+import Maps.Internal.Screen exposing (..)
 
 conversionsTest : Test
 conversionsTest =

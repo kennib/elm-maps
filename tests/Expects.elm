@@ -6,10 +6,10 @@ module Expects exposing
 
 import Expect exposing (Expectation)
 
-import Maps.Utils exposing (wrap)
-import Maps.Map exposing (Map)
-import Maps.LatLng exposing (LatLng)
-import Maps.Screen exposing (Offset)
+import Maps.Internal.Utils exposing (wrap)
+import Maps.Internal.Map exposing (Map)
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Screen exposing (Offset)
 
 equalMap : Float -> Map -> Map -> Expectation
 equalMap delta mapA mapB =

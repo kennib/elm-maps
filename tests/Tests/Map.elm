@@ -9,10 +9,10 @@ import Test exposing (..)
 import Fuzzers exposing (..)
 import Expects
 
-import Maps.Screen as Screen exposing (ZoomLevel)
-import Maps.Tile as Tile
-import Maps.LatLng exposing (LatLng)
-import Maps.Map exposing (..)
+import Maps.Internal.Screen as Screen exposing (ZoomLevel)
+import Maps.Internal.Tile as Tile
+import Maps.Internal.LatLng exposing (LatLng)
+import Maps.Internal.Map exposing (..)
 
 moveTest : Test
 moveTest =
