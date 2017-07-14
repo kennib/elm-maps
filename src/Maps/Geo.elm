@@ -10,10 +10,12 @@ module Maps.Geo exposing
 
 # Latitude/Longitude
 @docs LatLng
+@docs latLng
 
 # Bounds
+@docs Bounds
 @docs bounds
-@docs bounds
+@docs centeredBounds
 -}
 
 import Maps.Internal.LatLng as LatLng
