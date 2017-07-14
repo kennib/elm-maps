@@ -63,10 +63,6 @@ type Msg
   | PinchTo TwoFingers
   | PinchStop
   | Zoom Offset ZoomLevel
-  | SetBounds Bounds
-  | AddMarker Marker
-  | RemoveMarker Marker
-  | SetMarkers (List Marker)
 
 {-| The map's model consists of the [properties necessary to display a static map](Maps-Map#Map),
 a cache of the previous map (for simulated zooming/panning before the real tiles load in)
@@ -158,14 +154,6 @@ update msg model =
         (updateMap pinchedMap { model | pinch = Nothing }, Cmd.none)
     Zoom offset zoom ->
       (updateMap (Map.zoomTo zoom offset) model, Cmd.none)
-    SetBounds bounds ->
-      (updateMap (Map.viewBounds bounds) model, Cmd.none)
-    AddMarker marker ->
-      ({ model | markers = marker :: model.markers }, Cmd.none)
-    RemoveMarker marker ->
-      ({ model | markers = List.remove marker model.markers }, Cmd.none)
-    SetMarkers markers ->
-      ({ model | markers = markers }, Cmd.none)
 
 {-| -}
 subscriptions : Model -> Sub Msg
