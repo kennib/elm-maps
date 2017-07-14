@@ -9,10 +9,11 @@ import Html.Attributes as Attr
 import Maps.Internal.Screen as Screen exposing (ZoomLevel)
 import Maps.Internal.LatLng as LatLng exposing (LatLng)
 
-type Marker
+type Marker msg
   = DefaultMarker LatLng
+  | CustomMarker (Html msg) LatLng
 
-view : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Marker -> Html msg
+view : {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng} -> Marker msg -> Html msg
 view map marker =
   case marker of
     DefaultMarker latLng ->
@@ -34,6 +35,24 @@ view map marker =
             ]
           ]
           [
+          ]
+    CustomMarker html latLng ->
+      let
+        offset = Screen.offsetFromLatLng map latLng
+      in
+        Html.span
+          [ Attr.style
+            [("position", "absolute")
+            , ("left", toString offset.x ++ "px")
+            , ("top", toString offset.y ++ "px")
+            , ("display", "inline-block")
+            , ("text-align", "center")
+            , ("-webkit-transform", "translateX(-50%) translateY(-50%)")
+            , ("-moz-transform", "translateX(-50%) translateY(-50%)")
+            , ("transform", "translateX(-50%) translateY(-50%)")
+            ]
+          ]
+          [ html
           ]
 
 markerSvg =

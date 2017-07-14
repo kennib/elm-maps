@@ -1,6 +1,7 @@
 module Maps.Marker exposing
   ( Marker
   , create
+  , createCustom
   )
 
 {-| Markers are for displaying geographic locations on the map.
@@ -9,8 +10,10 @@ module Maps.Marker exposing
 
 # Create a marker
 @docs create
-
+@docs createCustom
 -}
+
+import Html exposing (Html)
 
 import Maps.Geo
 import Maps.Internal.Marker as Marker exposing (Marker(..))
@@ -19,7 +22,7 @@ import Maps.Internal.Marker as Marker exposing (Marker(..))
 
  * A default marker
 -}
-type alias Marker = Marker.Marker
+type alias Marker msg = Marker.Marker msg
 
 
 {-| Create a default style of marker at the given latitude/longitude.
@@ -31,5 +34,10 @@ type alias Marker = Marker.Marker
     newYorkMarker = Maps.Marker.create newYork
 
 -}
-create : Maps.Geo.LatLng -> Marker
+create : Maps.Geo.LatLng -> Marker msg
 create = Marker.DefaultMarker
+
+{-| Create a custom HTML marker at the given latitude/longitude.
+-}
+createCustom : Html msg -> Maps.Geo.LatLng -> Marker msg
+createCustom = Marker.CustomMarker

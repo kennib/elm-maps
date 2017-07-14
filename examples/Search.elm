@@ -10,7 +10,7 @@ import Maps.Geo exposing (Bounds)
 import Maps.Map as Map
 
 type Msg
-  = MapMsg Maps.Msg
+  = MapMsg (Maps.Msg ())
   | GeoCode String
   | GoToGeoCode String Bounds
   | NoResults String
