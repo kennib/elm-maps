@@ -11,7 +11,7 @@ import Maps.Marker as Marker exposing (Marker)
 import Maps.Map as Map
 
 type Msg
-  = MapMsg Maps.Msg
+  = MapMsg (Maps.Msg ())
   | GeoCode String
   | GoToGeoCode String (Bounds, LatLng)
   | NoResults String

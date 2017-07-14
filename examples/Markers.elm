@@ -21,7 +21,7 @@ main = program
 init =
   ( Maps.defaultModel
     |> Maps.updateMap (Map.setZoom 14 >> Map.moveTo sydney)
-    |> Maps.updateMarkers ((::) (Marker.create sydney))
+    |> Maps.updateMarkers ((::) (Marker.createCustom (Html.text "Sydney") sydney))
     |> Maps.updateMarkers (\markers -> List.map Marker.create attractions ++ markers)
   , Cmd.none
   )

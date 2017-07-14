@@ -10,7 +10,7 @@ import Maps
 import Maps.Map as Map
 
 type Msg
-  = MapMsg Maps.Msg
+  = MapMsg (Maps.Msg ())
   | Resize Window.Size
 
 main = program

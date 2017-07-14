@@ -55,7 +55,7 @@ import Maps.Internal.Zoom as Zoom
 
 {-| The map has events for dragging, zooming and setting the bounds displayed by the map.
 -}
-type Msg
+type Msg msg
   = DragStart Offset
   | DragTo Offset
   | DragStop
@@ -63,36 +63,36 @@ type Msg
   | PinchTo TwoFingers
   | PinchStop
   | Zoom Offset ZoomLevel
+  | ExternalMsg msg
 
 {-| The map's model consists of the [properties necessary to display a static map](Maps-Map#Map),
 a cache of the previous map (for simulated zooming/panning before the real tiles load in)
 and the state of the map being dragged.
 -}
-type alias Model =
+type alias Model msg =
   { map : Map
   , cache : List Map
-  , markers : List Marker
+  , markers : List (Marker msg)
   , drag : Maybe Drag
   , pinch : Maybe Pinch
   }
 
-updateMap : (Map -> Map) -> Model -> Model
+updateMap : (Map -> Map) -> Model msg -> Model msg
 updateMap update model =
   { model
   | map = update model.map
   , cache = model.map :: model.cache |> List.uniqueBy (.zoom >> ceiling)
   }
 
-updateMarkers : (List Marker -> List Marker) -> Model -> Model
+updateMarkers : (List (Marker msg) -> List (Marker msg)) -> Model msg -> Model msg
 updateMarkers update model =
   { model
   | markers = update model.markers
-  , cache = model.map :: model.cache |> List.uniqueBy (.zoom >> ceiling)
   }
 
 {-| A default model that displays Open Street Map tiles looking at Sydney.
 -}
-defaultModel : Model
+defaultModel : Model msg
 defaultModel =
   let
     map =
@@ -112,7 +112,7 @@ defaultModel =
     }
 
 {-| -}
-update : Msg -> Model -> (Model, Cmd Msg)
+update : (Msg msg) -> Model msg -> (Model msg, Cmd (Msg msg))
 update msg model =
   case msg of
     DragStart offset ->
@@ -154,14 +154,16 @@ update msg model =
         (updateMap pinchedMap { model | pinch = Nothing }, Cmd.none)
     Zoom offset zoom ->
       (updateMap (Map.zoomTo zoom offset) model, Cmd.none)
+    ExternalMsg msg ->
+      (model, Cmd.none)
 
 {-| -}
-subscriptions : Model -> Sub Msg
+subscriptions : Model msg -> Sub (Msg msg)
 subscriptions map =
   Sub.none
 
 {-| -}
-view : Model -> Html Msg
+view : Model msg -> Html (Msg msg)
 view ({map, cache, markers, pinch, drag} as model) =
   Html.div
     ([ Attr.style
@@ -212,21 +214,22 @@ view ({map, cache, markers, pinch, drag} as model) =
           , ("pointer-events", "none")
           ]
         ]
+        <| List.map (Html.map ExternalMsg)
         <| List.map (Marker.view zoomedMap)
         <| markers
       ]
 
-tilesView : List Map.Transformation -> Map -> Html Msg
+tilesView : List Map.Transformation -> Map -> Html (Msg msg)
 tilesView transforms map =
   Html.Keyed.node "div"
     [ Attr.style <| Map.transformationStyle map.width map.height <| transforms ]
     <| List.map (\((url, offset) as tile) -> (url, Tile.view map.tileSize tile))
     <| Map.tiles map
 
-zoomEvents : ZoomLevel -> List (Html.Attribute Msg)
+zoomEvents : ZoomLevel -> List (Html.Attribute (Msg msg))
 zoomEvents zoom =
   Zoom.events { zoom = Zoom, pinchStart = PinchStart, pinchTo = PinchTo, pinchStop = PinchStop } zoom
 
-dragEvents : Maybe Drag -> List (Html.Attribute Msg)
+dragEvents : Maybe Drag -> List (Html.Attribute (Msg msg))
 dragEvents drag =
   Drag.events { dragStart = DragStart, dragTo = DragTo, dragStop = DragStop } drag

@@ -9,10 +9,10 @@ module Maps.Internal.OpaqueTypes exposing
 import Maps.Internal.Map as Map
 import Maps.Internal.Maps as Maps
 
-type Model = Model Maps.Model
+type Model msg = Model (Maps.Model msg)
 type Map = Map Map.Map
 
-opaqueModel : (Maps.Model -> Maps.Model) -> (Model -> Model)
+opaqueModel : (Maps.Model msg -> Maps.Model msg ) -> (Model msg -> Model msg)
 opaqueModel update (Model model) = Model <| update model
 
 opaqueMap : (Map.Map -> Map.Map) -> (Map -> Map)
