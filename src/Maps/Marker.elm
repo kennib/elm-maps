@@ -18,9 +18,10 @@ import Html exposing (Html)
 import Maps.Geo
 import Maps.Internal.Marker as Marker exposing (Marker(..))
 
-{-| There is currently one type of marker:
+{-| There are currently two types of marker:
 
  * A default marker
+ * A custom HTML marker
 -}
 type alias Marker msg = Marker.Marker msg
 
