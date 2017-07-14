@@ -1,5 +1,5 @@
 {
-    "version": "3.0.2",
+    "version": "3.0.3",
     "summary": "An Elm library for interactive maps",
     "repository": "https://github.com/kennib/elm-maps.git",
     "license": "BSD3",
