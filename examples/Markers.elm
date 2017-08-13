@@ -1,10 +1,6 @@
-module SearchMarkers exposing (..)
-
-import Task
-import Window
+module Markers exposing (..)
 
 import Html exposing (program)
-import Html.Events exposing (onInput)
 
 import Maps
 import Maps.Geo
