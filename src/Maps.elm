@@ -7,6 +7,7 @@ module Maps exposing
   , subscriptions
   , update
   , view
+  , mapView
   )
 
 {-| Functions for creating a maps program and maniuplating the maps model.
@@ -28,6 +29,7 @@ You can use the functions below to display a map.
 @docs subscriptions
 @docs update
 @docs view
+@docs mapView
 
 # Update Model
 @docs updateMap
@@ -116,3 +118,26 @@ update msg (Model model) =
 {-| -}
 view : Model msg -> Html (Msg msg)
 view (Model model) = Maps.view model
+
+{-| Transforms the Maps HTML view into an arbitrary HTML view.
+Requires a function that can transform `Maps.Msg`s into `msg`s.
+
+```
+import Html
+import Html.Event exposing (onClick)
+import Maps
+
+type MyMsg = Click | MapsMsg Maps.Msg
+
+...
+
+view msg model =
+  Html.div
+    []
+    [ Maps.view model.map |> Maps.mapView MapsMsg
+    , Html.button [ onClick Click ] [ Html.text "Click!" ]
+    ]
+```
+-}
+mapView : (Msg msg -> msg) -> Html (Msg msg) -> Html msg
+mapView = Maps.mapView

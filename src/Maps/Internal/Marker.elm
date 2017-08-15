@@ -42,9 +42,10 @@ view map marker =
       in
         Html.span
           [ Attr.style
-            [("position", "absolute")
+            [ ("position", "absolute")
             , ("left", toString offset.x ++ "px")
             , ("top", toString offset.y ++ "px")
+            , ("pointer-events", "initial")
             , ("display", "inline-block")
             , ("text-align", "center")
             , ("-webkit-transform", "translateX(-50%) translateY(-50%)")

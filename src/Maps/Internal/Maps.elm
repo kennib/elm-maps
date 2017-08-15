@@ -7,6 +7,7 @@ module Maps.Internal.Maps exposing
   , update
   , subscriptions
   , view
+  , mapView
   )
 
 {-| The Maps library contains the functions neccessary for an
@@ -169,6 +170,12 @@ view ({map, cache, markers, pinch, drag} as model) =
     ([ Attr.style
       [ ("width", toString map.width ++ "px")
       , ("height", toString map.height ++ "px")
+      , ("-webkit-touch-callout", "none")
+      , ("-webkit-user-select", "none")
+      , ("-khtml-user-select", "none")
+      , ("-moz-user-select", "none")
+      , ("-ms-user-select", "none")
+      , ("user-select", "none")
       , ("background-color", "#ddd")
       ]
     ]
@@ -218,6 +225,17 @@ view ({map, cache, markers, pinch, drag} as model) =
         <| List.map (Marker.view zoomedMap)
         <| markers
       ]
+
+{-| Map a Map HTML view to an arbitrary HTML view which wraps map messages. -}
+mapView : (Msg msg -> msg) -> Html (Msg msg) -> Html msg
+mapView wrapMsg html =
+  let
+    mapMsg mapsMsg =
+      case mapsMsg of
+        ExternalMsg msg -> msg
+        mapsMsg -> wrapMsg mapsMsg
+  in
+    Html.map mapMsg html
 
 tilesView : List Map.Transformation -> Map -> Html (Msg msg)
 tilesView transforms map =
