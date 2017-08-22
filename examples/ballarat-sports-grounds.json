@@ -1,0 +1,3224 @@
+{
+  "type": "FeatureCollection",
+  "totalFeatures": 146,
+  "features": [
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.71004584531292,
+          -37.42182502633037
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217005",
+        "site": "Alexander Park",
+        "location": "Learmonth Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 739814,
+        "northing": 5854883,
+        "measure": 59.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.7994276630051,
+          -37.555697321325404
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217006",
+        "site": "Alfredton Recreation Reserve",
+        "location": "Alfredton Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 747283,
+        "northing": 5839795,
+        "measure": 72.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.7994607746233,
+          -37.55570176082929
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217010",
+        "site": "Alfredton Recreation Reserve",
+        "location": "Alfredton Recreation Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 747286,
+        "northing": 5839794,
+        "measure": 20300,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.79896330137367,
+          -37.55747130240099
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00233992",
+        "site": "Alfredton Recreation Reserve",
+        "location": null,
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 747236,
+        "northing": 5839599,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87122582582356,
+          -37.54941062474189
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217012",
+        "site": "Binney Reserve",
+        "location": "Binney  Reserve (Binney Street Res.)",
+        "feat_type": "SG-Cricket/Football/Soccer",
+        "easting": 753648,
+        "northing": 5840301,
+        "measure": 9214.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87123831914786,
+          -37.54941275307749
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217013",
+        "site": "Binney Reserve",
+        "location": "Binney  Reserve (Binney Street Res.)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753649,
+        "northing": 5840301,
+        "measure": 57.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89674006520553,
+          -37.552090897622165
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217014",
+        "site": "Brown Hill Reserve",
+        "location": "Brown Hill Reserve  (Progress Park)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755893,
+        "northing": 5839935,
+        "measure": 11914,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8904201424944,
+          -37.64852963285524
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217022",
+        "site": "Buninyong Recreation Reserve",
+        "location": "Buninyong Community Facility",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 755005,
+        "northing": 5829249,
+        "measure": 18833.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8911309656877,
+          -37.648852187229224
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217023",
+        "site": "Buninyong Recreation Reserve",
+        "location": "Buninyong Community Facility",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755066,
+        "northing": 5829211,
+        "measure": 46.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89126701806336,
+          -37.6498323263408
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217024",
+        "site": "Buninyong Recreation Reserve",
+        "location": "Buninyong Community Facility",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755075,
+        "northing": 5829102,
+        "measure": 59.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89120941861572,
+          -37.64983860387864
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217025",
+        "site": "Buninyong Recreation Reserve",
+        "location": "Buninyong Community Facility",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755070,
+        "northing": 5829101,
+        "measure": 58.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89119362273843,
+          -37.64979034452684
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217026",
+        "site": "Buninyong Recreation Reserve",
+        "location": "Buninyong Community Facility",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755069,
+        "northing": 5829107,
+        "measure": 57.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.70919919818115,
+          -37.51367897405943
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217028",
+        "site": "Cardigan Village Reserve",
+        "location": "Cardigan Village Reserve",
+        "feat_type": "SG-Football",
+        "easting": 739445,
+        "northing": 5844692,
+        "measure": 746.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84291476311088,
+          -37.537227386573534
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217030",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751187,
+        "northing": 5841729,
+        "measure": 315.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84291612315715,
+          -37.537209155838404
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217034",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 751187,
+        "northing": 5841731,
+        "measure": 18805.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.844600760655,
+          -37.537508640426175
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217035",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 751335,
+        "northing": 5841694,
+        "measure": 13618.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84339637733945,
+          -37.53579021433829
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217036",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751234,
+        "northing": 5841888,
+        "measure": 60.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84334711519924,
+          -37.53578536545653
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217037",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751230,
+        "northing": 5841888,
+        "measure": 60.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84344291133186,
+          -37.53579693072066
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217038",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751238,
+        "northing": 5841887,
+        "measure": 60.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84348848323205,
+          -37.53580042706697
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217039",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751242,
+        "northing": 5841886,
+        "measure": 60.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84459594739994,
+          -37.537509657353006
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217040",
+        "site": "Charles Edward Brown Reserve",
+        "location": "C.E Brown Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751335,
+        "northing": 5841694,
+        "measure": 53.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.22",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8378357229932,
+          -37.55815974078584
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217043",
+        "site": "City Oval",
+        "location": "City Oval",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 750668,
+        "northing": 5839420,
+        "measure": 20146.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.23",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8164999745706,
+          -37.58446696948603
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217044",
+        "site": "Doug Dean Reserve",
+        "location": "Doug Dean Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 748695,
+        "northing": 5836557,
+        "measure": 15976.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.24",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81634482014388,
+          -37.583179790032325
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217046",
+        "site": "Doug Dean Reserve",
+        "location": "Doug Dean Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 748686,
+        "northing": 5836700,
+        "measure": 41.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.25",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8163868877013,
+          -37.583181217932584
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217047",
+        "site": "Doug Dean Reserve",
+        "location": "Doug Dean Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 748690,
+        "northing": 5836700,
+        "measure": 41.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.26",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81645968222054,
+          -37.584475499118575
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217048",
+        "site": "Doug Dean Reserve",
+        "location": "Doug Dean Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 748692,
+        "northing": 5836556,
+        "measure": 45.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.27",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86348527623946,
+          -37.557770302465514
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217049",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 752935,
+        "northing": 5839394,
+        "measure": 17946.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.28",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86356863826057,
+          -37.557795125315735
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217050",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752943,
+        "northing": 5839391,
+        "measure": 675,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.29",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8619922916772,
+          -37.5581441829533
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217051",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752802,
+        "northing": 5839357,
+        "measure": 54.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.30",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8621425146391,
+          -37.55815774528428
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217052",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752813,
+        "northing": 5839357,
+        "measure": 49.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.31",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86203646478185,
+          -37.558152210215944
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217053",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752814,
+        "northing": 5839358,
+        "measure": 51.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.32",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86208763492934,
+          -37.558157725410396
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217054",
+        "site": "Eastern Oval",
+        "location": "Eastern Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752802,
+        "northing": 5839357,
+        "measure": 54.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.33",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83205344924878,
+          -37.6058667576942
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217056",
+        "site": "Grant Street Reserve",
+        "location": "Grant Street Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749997,
+        "northing": 5834141,
+        "measure": 6365.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.34",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87344981029113,
+          -37.52334257231717
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217058",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753933,
+        "northing": 5843188,
+        "measure": 43.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.35",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8734682440079,
+          -37.52336347443012
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217059",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753934,
+        "northing": 5843186,
+        "measure": 43.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.36",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8734999465449,
+          -37.52337765716084
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217060",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753937,
+        "northing": 5843184,
+        "measure": 43.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.37",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87353312319365,
+          -37.52339621832304
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217061",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753940,
+        "northing": 5843182,
+        "measure": 43.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.38",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87453917569061,
+          -37.5235089209386
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217064",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 754028,
+        "northing": 5843167,
+        "measure": 14808,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.39",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87622542400413,
+          -37.52360539858067
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217065",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Equestrian",
+        "easting": 754177,
+        "northing": 5843152,
+        "measure": 1246.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.40",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87671997316576,
+          -37.52330028612133
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217066",
+        "site": "Invermay Recreation Reserve",
+        "location": "Invermay Recreation Reserve",
+        "feat_type": "SG-Equestrian",
+        "easting": 754222,
+        "northing": 5843184,
+        "measure": 241.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.41",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.71179633414158,
+          -37.42167836510769
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217068",
+        "site": "Learmonth Recreation Reserve",
+        "location": "Learmonth Recreation Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 739969,
+        "northing": 5854895,
+        "measure": 19019.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.42",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.7116899880685,
+          -37.42158674935046
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217069",
+        "site": "Learmonth Recreation Reserve",
+        "location": "Learmonth Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 739960,
+        "northing": 5854905,
+        "measure": 63.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.43",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.7104366088022,
+          -37.42041304371741
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217070",
+        "site": "Learmonth Recreation Reserve",
+        "location": "Learmonth Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 739853,
+        "northing": 5855039,
+        "measure": 55.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.44",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.7100945203758,
+          -37.42183138736676
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217071",
+        "site": "Learmonth Recreation Reserve",
+        "location": "Learmonth Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 739818,
+        "northing": 5854882,
+        "measure": 60.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.45",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86583648909217,
+          -37.56890900702913
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217072",
+        "site": "Llanberris Athletics Reserve",
+        "location": "Llanberris Athletics Reserve",
+        "feat_type": "SG-Athletics",
+        "easting": 753105,
+        "northing": 5838152,
+        "measure": 214.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.93",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88410236348244,
+          -37.55634601495133
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217140",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754762,
+        "northing": 5839497,
+        "measure": 48.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.46",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8660849201835,
+          -37.5686958585044
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217073",
+        "site": "Llanberris Athletics Reserve",
+        "location": "Llanberris Athletics Reserve",
+        "feat_type": "SG-Athletics",
+        "easting": 753128,
+        "northing": 5838175,
+        "measure": 211.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.47",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.86318994208784,
+          -37.54314891946381
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217075",
+        "site": "Marks Reserve",
+        "location": "MARKS RESERVE",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752959,
+        "northing": 5841018,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.48",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84332440717208,
+          -37.60356872640164
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217076",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 751000,
+        "northing": 5834366,
+        "measure": 16993.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.49",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84568548845158,
+          -37.603650238474756
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217080",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751208,
+        "northing": 5834350,
+        "measure": 81.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.50",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8457157189432,
+          -37.603674012924095
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217081",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 751211,
+        "northing": 5834348,
+        "measure": 18897.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.51",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84448004595188,
+          -37.603864002482766
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217082",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751101,
+        "northing": 5834330,
+        "measure": 57,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.52",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84451264869173,
+          -37.60384465789084
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217083",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751104,
+        "northing": 5834332,
+        "measure": 56.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.53",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.84445001587346,
+          -37.60388959118009
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217088",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751098,
+        "northing": 5834327,
+        "measure": 31.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.54",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8443976157335,
+          -37.60388445887188
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217089",
+        "site": "Marty Busch Reserve",
+        "location": "Marty Busch Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751094,
+        "northing": 5834328,
+        "measure": 37.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.55",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8723674458889,
+          -37.563373341741155
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217093",
+        "site": "McKenzie Reserve",
+        "location": "McKenzie Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 753701,
+        "northing": 5838749,
+        "measure": 4363.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.56",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87237790226195,
+          -37.563409843055865
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217094",
+        "site": "McKenzie Reserve",
+        "location": "McKenzie Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753702,
+        "northing": 5838745,
+        "measure": 31.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.57",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83444183589938,
+          -37.57944867436236
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217096",
+        "site": "Morshead Park",
+        "location": "Morshead Park",
+        "feat_type": "SG-Soccer",
+        "easting": 750297,
+        "northing": 5837066,
+        "measure": 6474.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.58",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83428120308793,
+          -37.58030603405223
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217097",
+        "site": "Morshead Park",
+        "location": "Morshead Park",
+        "feat_type": "SG-Soccer",
+        "easting": 750280,
+        "northing": 5836972,
+        "measure": 12105.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.59",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83179343995553,
+          -37.58085767235798
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217098",
+        "site": "Morshead Park",
+        "location": "Morshead Park",
+        "feat_type": "SG-Greyhound Slipping Track",
+        "easting": 750058,
+        "northing": 5836917,
+        "measure": 948.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.60",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83328209580654,
+          -37.58010742913052
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217099",
+        "site": "Morshead Park",
+        "location": "Morshead Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 750192,
+        "northing": 5836996,
+        "measure": 971.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.61",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83487719898733,
+          -37.579511002961944
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217100",
+        "site": "Morshead Park",
+        "location": "Morshead Park",
+        "feat_type": "SG-Soccer",
+        "easting": 750335,
+        "northing": 5837058,
+        "measure": 2875.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.62",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87488397368983,
+          -37.60532536389085
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217103",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753781,
+        "northing": 5834086,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.63",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87549177553507,
+          -37.60646753770219
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217104",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753831,
+        "northing": 5833958,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.64",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87545367810984,
+          -37.606455584213506
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217105",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753827,
+        "northing": 5833959,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.65",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87541400365308,
+          -37.60643420998169
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217106",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753824,
+        "northing": 5833961,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.66",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87483637472965,
+          -37.606892425377545
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217107",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753771,
+        "northing": 5833912,
+        "measure": 0,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.67",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87491286077088,
+          -37.60530673219985
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217108",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 753783,
+        "northing": 5834088,
+        "measure": 12666,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.68",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87486029495585,
+          -37.60691697660847
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217109",
+        "site": "Mount Clear Recreation Reserve",
+        "location": "MT CLEAR RECREATION RESERVE (MT CLEAR TECH RESERVE)",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 753773,
+        "northing": 5833909,
+        "measure": 14748,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.69",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.85091187220084,
+          -37.577770135973985
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217112",
+        "site": "Mount Pleasant Reserve",
+        "location": "Mt Pleasant Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 751757,
+        "northing": 5837209,
+        "measure": 11051.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.70",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.85098099112756,
+          -37.57788359818073
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217113",
+        "site": "Mount Pleasant Reserve",
+        "location": "Mt Pleasant Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751763,
+        "northing": 5837196,
+        "measure": 57.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.71",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82944054403768,
+          -37.60121812592906
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217101",
+        "site": "MR Power Reserve",
+        "location": "M.R Power Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749782,
+        "northing": 5834664,
+        "measure": 307.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.72",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82862986049298,
+          -37.60077208683855
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217102",
+        "site": "MR Power Reserve",
+        "location": "M.R Power Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749712,
+        "northing": 5834715,
+        "measure": 6546.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.73",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8458300745436,
+          -37.53694702287387
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217118",
+        "site": "Northern Oval Reserve",
+        "location": "NORTHERN OVAL",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 751446,
+        "northing": 5841753,
+        "measure": 773,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.74",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8464589238914,
+          -37.53757905288067
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217119",
+        "site": "Northern Oval Reserve",
+        "location": "NORTHERN OVAL",
+        "feat_type": "SG-Football",
+        "easting": 751499,
+        "northing": 5841681,
+        "measure": 14920,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.75",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8481163882728,
+          -37.53932605886706
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217121",
+        "site": "Northern Oval Reserve",
+        "location": "NORTHERN OVAL",
+        "feat_type": "SG-Football",
+        "easting": 751640,
+        "northing": 5841483,
+        "measure": 21121,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.76",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83557155051696,
+          -37.57152957485565
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217123",
+        "site": "Pleasant Street Reserve",
+        "location": "Pleasant Street Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750423,
+        "northing": 5837942,
+        "measure": 5572.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.77",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8363005629905,
+          -37.57134646499646
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217124",
+        "site": "Pleasant Street Reserve",
+        "location": "Pleasant Street Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750488,
+        "northing": 5837961,
+        "measure": 1460.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.78",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83623609037588,
+          -37.57196710463816
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217125",
+        "site": "Pleasant Street Reserve",
+        "location": "Pleasant Street Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750480,
+        "northing": 5837892,
+        "measure": 5173.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.79",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81940093752982,
+          -37.5497663395101
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217126",
+        "site": "Prince of Wales Park",
+        "location": "Prince of Wales Park",
+        "feat_type": "SG-Hockey",
+        "easting": 749067,
+        "northing": 5840400,
+        "measure": 6177,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.80",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81761724137482,
+          -37.54952021432212
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217127",
+        "site": "Prince of Wales Park",
+        "location": "Prince of Wales Park",
+        "feat_type": "SG-Baseball/Softball",
+        "easting": 748910,
+        "northing": 5840433,
+        "measure": 10760,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.81",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8169486877864,
+          -37.548620870939224
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217128",
+        "site": "Prince of Wales Park",
+        "location": "Prince of Wales Park",
+        "feat_type": "SG-Baseball/Softball",
+        "easting": 748854,
+        "northing": 5840534,
+        "measure": 10723.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.82",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81538607632515,
+          -37.54839141438024
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217129",
+        "site": "Prince of Wales Park",
+        "location": "Prince of Wales Park",
+        "feat_type": "SG-Baseball/Softball",
+        "easting": 748717,
+        "northing": 5840564,
+        "measure": 10848.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.83",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81650001901906,
+          -37.5501453534497
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217130",
+        "site": "Prince of Wales Park",
+        "location": "Prince of Wales Park",
+        "feat_type": "SG-Baseball/Softball",
+        "easting": 748810,
+        "northing": 5840366,
+        "measure": 12041.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.84",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88421896979375,
+          -37.555466338730504
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217131",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Soccer",
+        "easting": 754775,
+        "northing": 5839594,
+        "measure": 6597.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.85",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88513657686374,
+          -37.55657432376788
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217132",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Football",
+        "easting": 754852,
+        "northing": 5839469,
+        "measure": 12889.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.86",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88550035526268,
+          -37.555384014279646
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217133",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Soccer",
+        "easting": 754889,
+        "northing": 5839600,
+        "measure": 2276,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.87",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8850524733157,
+          -37.55534523975586
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217134",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Soccer",
+        "easting": 754849,
+        "northing": 5839605,
+        "measure": 2282.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.88",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88384113890845,
+          -37.55502973042545
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217135",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754743,
+        "northing": 5839643,
+        "measure": 5327.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.89",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8850430337039,
+          -37.554807916214926
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217136",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754850,
+        "northing": 5839665,
+        "measure": 5326.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.90",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88439149287296,
+          -37.55478547052537
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217137",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Soccer",
+        "easting": 754793,
+        "northing": 5839669,
+        "measure": 6647.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.91",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88419213559695,
+          -37.55633607265091
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217138",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754770,
+        "northing": 5839498,
+        "measure": 45.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.92",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8841451818787,
+          -37.556345508666006
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217139",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754766,
+        "northing": 5839497,
+        "measure": 47.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.94",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88405759000352,
+          -37.556344226732364
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217141",
+        "site": "Russell Square",
+        "location": "Russell Square",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754758,
+        "northing": 5839497,
+        "measure": 45.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.95",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8215793706956,
+          -37.55247045129143
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217146",
+        "site": "South Gardens Reserve",
+        "location": "Ballarat Botanical Gardens (South)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749251,
+        "northing": 5840095,
+        "measure": 3850.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.96",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88508786619818,
+          -37.576913274473235
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217148",
+        "site": "Sparrow Ground Reserve",
+        "location": "Sparrow Ground Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 754779,
+        "northing": 5837211,
+        "measure": 11530.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.97",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.88508627314627,
+          -37.57691070089873
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217149",
+        "site": "Sparrow Ground Reserve",
+        "location": "Sparrow Ground Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 754779,
+        "northing": 5837212,
+        "measure": 49.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.98",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8382761030041,
+          -37.59170498882344
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217207",
+        "site": "St Georges Reserve",
+        "location": "St Georges Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750594,
+        "northing": 5835696,
+        "measure": 6532.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.99",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83803857542694,
+          -37.590882341973334
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217208",
+        "site": "St Georges Reserve",
+        "location": "St Georges Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750576,
+        "northing": 5835788,
+        "measure": 1466.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.100",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.838582522664,
+          -37.59088609768766
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217209",
+        "site": "St Georges Reserve",
+        "location": "St Georges Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750624,
+        "northing": 5835786,
+        "measure": 1378.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.101",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8391807268041,
+          -37.59172997034195
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217210",
+        "site": "St Georges Reserve",
+        "location": "St Georges Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 750674,
+        "northing": 5835691,
+        "measure": 5553,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.102",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83762778732896,
+          -37.57192894905851
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217150",
+        "site": "Trekardo Park",
+        "location": "Trekardo Park",
+        "feat_type": "SG-Soccer",
+        "easting": 750603,
+        "northing": 5837892,
+        "measure": 8490.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.103",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.83803957950863,
+          -37.57100302074683
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217151",
+        "site": "Trekardo Park",
+        "location": "Trekardo Park",
+        "feat_type": "SG-Soccer",
+        "easting": 750643,
+        "northing": 5837994,
+        "measure": 6414.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.104",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8245520251905,
+          -37.56075850676637
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217152",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749486,
+        "northing": 5839167,
+        "measure": 52.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.105",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82561660129477,
+          -37.56201272735606
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217153",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749575,
+        "northing": 5839025,
+        "measure": 51,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.106",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82058914649753,
+          -37.55836280881029
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217154",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749144,
+        "northing": 5839443,
+        "measure": 49.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.107",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8217968079505,
+          -37.558608430537376
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217155",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749249,
+        "northing": 5839413,
+        "measure": 50.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.108",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82031224685753,
+          -37.55942968798608
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217156",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749115,
+        "northing": 5839326,
+        "measure": 51.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.109",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82107111092884,
+          -37.56379185597508
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217157",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749168,
+        "northing": 5838840,
+        "measure": 51.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.110",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82014077752814,
+          -37.563088702877636
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217158",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749088,
+        "northing": 5838920,
+        "measure": 48.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.111",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8194041090023,
+          -37.5622585726959
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217159",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749026,
+        "northing": 5839014,
+        "measure": 43.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.112",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8199066104553,
+          -37.561122069638564
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217160",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749074,
+        "northing": 5839139,
+        "measure": 51.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.113",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82098831538843,
+          -37.56138512387192
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217161",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749169,
+        "northing": 5839107,
+        "measure": 54.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.114",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8216384590745,
+          -37.56187128148112
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217162",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749225,
+        "northing": 5839051,
+        "measure": 47.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.115",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82160367592274,
+          -37.56184986142868
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217163",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749222,
+        "northing": 5839054,
+        "measure": 48.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.116",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82156692955536,
+          -37.56183083063768
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217164",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749218,
+        "northing": 5839056,
+        "measure": 52,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.117",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81961993058854,
+          -37.56110603931097
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217165",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Soccer",
+        "easting": 749049,
+        "northing": 5839141,
+        "measure": 4378.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.118",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82042121925147,
+          -37.561303909598315
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217166",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Soccer",
+        "easting": 749119,
+        "northing": 5839117,
+        "measure": 8294.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.119",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82355625091122,
+          -37.56819207595292
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217178",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749373,
+        "northing": 5838345,
+        "measure": 1267.7,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.120",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8238566877665,
+          -37.56831947721161
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217179",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749399,
+        "northing": 5838330,
+        "measure": 1290.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.121",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8242113764106,
+          -37.568462155185976
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217180",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749430,
+        "northing": 5838313,
+        "measure": 1286.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.122",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.824516552713,
+          -37.568586468313285
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217181",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749456,
+        "northing": 5838298,
+        "measure": 1310.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.123",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82428579555435,
+          -37.56764759082296
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217182",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749439,
+        "northing": 5838403,
+        "measure": 4324.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.124",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82208381077322,
+          -37.567951819003426
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217183",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749244,
+        "northing": 5838375,
+        "measure": 1189.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.125",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82825315457802,
+          -37.56790532503358
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217185",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749789,
+        "northing": 5838364,
+        "measure": 44,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.126",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82580187507529,
+          -37.56408682267344
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217187",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749585,
+        "northing": 5838794,
+        "measure": 50.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.127",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82626959500172,
+          -37.565688840868155
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217188",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749621,
+        "northing": 5838615,
+        "measure": 46.3,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.128",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82495571267154,
+          -37.564888520712394
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217189",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749507,
+        "northing": 5838707,
+        "measure": 44.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.129",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82492404005876,
+          -37.56486549568706
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217190",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749505,
+        "northing": 5838710,
+        "measure": 41,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.130",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82489335445314,
+          -37.56484388844098
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217191",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749502,
+        "northing": 5838713,
+        "measure": 42.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.131",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8230409254249,
+          -37.567572615611205
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217194",
+        "site": "Victoria Park",
+        "location": "Victoria Park",
+        "feat_type": "SG-Equestrian",
+        "easting": 749329,
+        "northing": 5838415,
+        "measure": 319.1,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.132",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81854805705524,
+          -37.52491680870395
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217195",
+        "site": "Wendouree West Recreation Reserve",
+        "location": "Wendouree West Recreation Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749075,
+        "northing": 5843160,
+        "measure": 66.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.133",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81811753715016,
+          -37.52489249607816
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217196",
+        "site": "Wendouree West Recreation Reserve",
+        "location": "Wendouree West Recreation Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 749037,
+        "northing": 5843164,
+        "measure": 7265.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.134",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.81898102408908,
+          -37.52486736802696
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217197",
+        "site": "Wendouree West Recreation Reserve",
+        "location": "Wendouree West Recreation Reserve",
+        "feat_type": "SG-Soccer",
+        "easting": 749113,
+        "northing": 5843165,
+        "measure": 4359.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.135",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8391855037164,
+          -37.56528706628505
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217198",
+        "site": "Western Oval Reserve",
+        "location": "Western Oval",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 750763,
+        "northing": 5838625,
+        "measure": 317.5,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.136",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8391852047592,
+          -37.565274280885546
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217199",
+        "site": "Western Oval Reserve",
+        "location": "Western Oval",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 750763,
+        "northing": 5838627,
+        "measure": 16397.8,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.137",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.85596160156214,
+          -37.56936796124372
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217200",
+        "site": "White Flat Oval Reserve",
+        "location": "White Flat",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 752231,
+        "northing": 5838128,
+        "measure": 15206.2,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.138",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.85576415768804,
+          -37.569792553020726
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217201",
+        "site": "White Flat Oval Reserve",
+        "location": "White Flat",
+        "feat_type": "SG-Football",
+        "easting": 752213,
+        "northing": 5838081,
+        "measure": 3471,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.139",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.85653953116665,
+          -37.56869704338736
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217202",
+        "site": "White Flat Oval Reserve",
+        "location": "White Flat",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 752285,
+        "northing": 5838200,
+        "measure": 61.4,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.140",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.82334372563113,
+          -37.52205381081777
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217203",
+        "site": "Wyndholm Reserve",
+        "location": "Wyndholm Reserve",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 749508,
+        "northing": 5843466,
+        "measure": 57.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.141",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.8233681148804,
+          -37.522062326364605
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217204",
+        "site": "Wyndholm Reserve",
+        "location": "Wyndholm Reserve",
+        "feat_type": "SG-Cricket/Football",
+        "easting": 749510,
+        "northing": 5843464,
+        "measure": 15232,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.142",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.87469377651436,
+          -37.62441709022166
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217205",
+        "site": "Yarana Drive Park",
+        "location": "Yarana Drive Park",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 753699,
+        "northing": 5831968,
+        "measure": 31,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.143",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89628651282752,
+          -37.551481238968506
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217212",
+        "site": "Yarrowee River Reserve",
+        "location": "Brown Hill Reserve  (Progress Park)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755855,
+        "northing": 5840003,
+        "measure": 38.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.144",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89631936073906,
+          -37.5514763786045
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217213",
+        "site": "Yarrowee River Reserve",
+        "location": "Brown Hill Reserve  (Progress Park)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755858,
+        "northing": 5840004,
+        "measure": 37.6,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.145",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89636351345266,
+          -37.55146943893884
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217214",
+        "site": "Yarrowee River Reserve",
+        "location": "Brown Hill Reserve  (Progress Park)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755862,
+        "northing": 5840005,
+        "measure": 37.9,
+        "unit": "Square Metres"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "6f254063_19fa_4e5e_90f6_6934d263d70e.146",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          143.89638483959158,
+          -37.55146828475429
+        ]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": "00217215",
+        "site": "Yarrowee River Reserve",
+        "location": "Brown Hill Reserve  (Progress Park)",
+        "feat_type": "SG-Cricket Pitch",
+        "easting": 755864,
+        "northing": 5840005,
+        "measure": 38.6,
+        "unit": "Square Metres"
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::32754"
+    }
+  }
+}
