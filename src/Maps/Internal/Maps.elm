@@ -3,6 +3,7 @@ module Maps.Internal.Maps exposing
   , Model
   , updateMap
   , updateMarkers
+  , updateGeometry
   , defaultModel
   , update
   , subscriptions
@@ -40,6 +41,7 @@ import List.Extra as List
 import Json.Decode as Json
 
 import Html exposing (Html, program)
+import Svg
 import Html.Keyed
 import Html.Attributes as Attr
 import Html.Events exposing (onWithOptions)
@@ -49,6 +51,7 @@ import Maps.Internal.Screen as Screen exposing (Offset, TwoFingers, ZoomLevel)
 import Maps.Internal.LatLng as LatLng exposing (LatLng)
 import Maps.Internal.Bounds as Bounds exposing (Bounds)
 import Maps.Internal.Marker as Marker exposing (Marker)
+import Maps.Internal.Geometry as Geometry exposing (Geometry)
 import Maps.Internal.Tile as Tile exposing (Tile)
 import Maps.Internal.Drag as Drag exposing (Drag)
 import Maps.Internal.Pinch as Pinch exposing (Pinch)
@@ -74,6 +77,7 @@ type alias Model msg =
   { map : Map
   , cache : List Map
   , markers : List (Marker msg)
+  , geometry : List (Geometry msg)
   , drag : Maybe Drag
   , pinch : Maybe Pinch
   }
@@ -89,6 +93,12 @@ updateMarkers : (List (Marker msg) -> List (Marker msg)) -> Model msg -> Model m
 updateMarkers update model =
   { model
   | markers = update model.markers
+  }
+
+updateGeometry : (List (Geometry msg) -> List (Geometry msg)) -> Model msg -> Model msg
+updateGeometry update model =
+  { model
+  | geometry = update model.geometry
   }
 
 {-| A default model that displays Open Street Map tiles looking at Sydney.
@@ -108,6 +118,7 @@ defaultModel =
     { map = map
     , cache = []
     , markers = []
+    , geometry = []
     , drag = Nothing
     , pinch = Nothing
     }
@@ -165,7 +176,7 @@ subscriptions map =
 
 {-| -}
 view : Model msg -> Html (Msg msg)
-view ({map, cache, markers, pinch, drag} as model) =
+view ({map, cache, markers, geometry, pinch, drag} as model) =
   Html.div
     ([ Attr.style
       [ ("width", toString map.width ++ "px")
@@ -224,6 +235,18 @@ view ({map, cache, markers, pinch, drag} as model) =
         <| List.map (Html.map ExternalMsg)
         <| List.map (Marker.view zoomedMap)
         <| markers
+      , Svg.svg
+        [ Attr.style
+          [ ("position", "absolute")
+          , ("width", toString map.width ++ "px")
+          , ("height", toString map.height ++ "px")
+          , ("overflow", "hidden")
+          , ("pointer-events", "none")
+          ]
+        ]
+        <| List.map (Html.map ExternalMsg)
+        <| List.map (Geometry.view zoomedMap)
+        <| geometry 
       ]
 
 {-| Map a Map HTML view to an arbitrary HTML view which wraps map messages. -}

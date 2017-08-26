@@ -3,6 +3,7 @@ module Maps exposing
   , Model
   , updateMap
   , updateMarkers
+  , updateGeometry
   , defaultModel
   , subscriptions
   , update
@@ -43,10 +44,12 @@ Use the functions above to maniuplate and extract information from them.
 @docs Model
 -}
 
+import GeoJson
 import Html exposing (Html)
 
 import Maps.Internal.OpaqueTypes as OpaqueTypes exposing (Model(..), opaqueModel, transparentMap)
 import Maps.Marker exposing (Marker)
+import Maps.Geometry exposing (Geometry)
 import Maps.Map exposing (Map)
 import Maps.Internal.Maps as Maps
 
@@ -99,6 +102,11 @@ See [Maps.Marker](./Maps-Marker) for documentation of the Marker functions.
 -}
 updateMarkers : (List (Marker msg) -> List (Marker msg)) -> Model msg -> Model msg
 updateMarkers update = opaqueModel <| Maps.updateMarkers update
+
+{-
+-}
+updateGeometry : (List (Geometry msg) -> List (Geometry msg)) -> Model msg -> Model msg
+updateGeometry update = opaqueModel <| Maps.updateGeometry update
 
 {-| The default model is a map zoomed into Sydney, Australia with no markers.
 -}
