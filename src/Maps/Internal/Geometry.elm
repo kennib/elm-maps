@@ -10,7 +10,7 @@ import Html.Attributes as Attr
 
 import Svg
 import Svg.Attributes as Attr
-import Svg.Path exposing (pathToString, subpath, startAt, lineToMany, emptySubpath, closed)
+import Svg.Path exposing (pathToString, subpath, startAt, lineToMany, emptySubpath, open, closed)
 
 import Maps.Internal.Screen as Screen exposing (ZoomLevel)
 import Maps.Internal.LatLng as LatLng exposing (LatLng)
@@ -33,11 +33,25 @@ geometryView map geometry =
     Point position ->
       Svg.g [] []
     MultiPoint positions -> 
-      Svg.g [] []
+      Svg.g
+        []
+        <| (positions |> List.map Point |> List.map (geometryView map))
     LineString line ->
-      Svg.g [] []
+      Svg.path
+        [ line
+          |> List.map (positionToOffset map)
+          |> linePath
+          |> \subpath -> pathToString [ subpath ]
+          |> Attr.d
+        , Attr.fill "none"
+        , Attr.stroke color
+        , Attr.strokeWidth strokeWidth
+        ]
+        []
     MultiLineString lines ->
-      Svg.g [] []
+      Svg.g
+        []
+        <| (lines |> List.map LineString |> List.map (geometryView map))
     Polygon polygon ->
       Svg.path
         [ polygon
@@ -65,6 +79,13 @@ positionToOffset map (lng, lat, _) =
     offset = Screen.offsetFromLatLng map <| LatLng lat lng
   in
     (offset.x, offset.y)
+
+linePath ps =
+  case ps of
+    [] ->
+      emptySubpath
+    x :: xs ->
+      subpath (startAt x) open [ lineToMany xs ]
 
 polygonPath ps =
   case ps of
