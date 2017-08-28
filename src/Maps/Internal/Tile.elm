@@ -34,7 +34,7 @@ fromLatLng : Float -> LatLng -> Offset
 fromLatLng zoom loc =
   let
     n = 2 ^ zoom
-    x = n * ((loc.lng + 180) / 360) |> wrap 0 n
+    x = n * ((loc.lng + 180) / 360)
     latRad = loc.lat * pi / 180
     y = n * (1 - (logBase e <| abs <| tan latRad + (1/cos latRad)) / pi) / 2
   in
