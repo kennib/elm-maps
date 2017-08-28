@@ -45,6 +45,9 @@ geometryView map geometry =
           |> List.map polygonPath
           |> pathToString
           |> Attr.d
+        , Attr.fill (color++"66")
+        , Attr.stroke color
+        , Attr.strokeWidth strokeWidth
         ]
         []
     MultiPolygon polygons ->
@@ -69,3 +72,9 @@ polygonPath ps =
       emptySubpath
     x :: xs ->
       subpath (startAt x) closed [ lineToMany xs ]
+
+color : String
+color = "#5555dd"
+
+strokeWidth : String
+strokeWidth = "2px"
