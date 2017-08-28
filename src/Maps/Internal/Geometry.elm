@@ -14,6 +14,7 @@ import Svg.Path exposing (pathToString, subpath, startAt, lineToMany, emptySubpa
 
 import Maps.Internal.Screen as Screen exposing (ZoomLevel)
 import Maps.Internal.LatLng as LatLng exposing (LatLng)
+import Maps.Internal.Marker as Marker
 
 type alias Map a = {a | tileSize : Float, zoom : ZoomLevel, width : Float, height : Float, center : LatLng}
 
@@ -31,7 +32,17 @@ geometryView : Map a -> GeoJson.Geometry -> Html msg
 geometryView map geometry =
   case geometry of
     Point position ->
-      Svg.g [] []
+      let
+        (x, y) = positionToOffset map position
+      in
+        Svg.path
+          [ Attr.transform <| "translate("++toString x++","++toString y++")"
+          , Attr.d Marker.svgPath
+          , Attr.fill (color++"66")
+          , Attr.stroke color
+          , Attr.strokeWidth strokeWidth
+          ]
+          []
     MultiPoint positions -> 
       Svg.g
         []
