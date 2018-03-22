@@ -135,8 +135,9 @@ For example, view th bounds of Madagascar:
     let
       madagascar =
         Maps.Geo.bounds
-          (Map.Geo.LatLng -11.9519639 50.48377989999999)
-          (Maps.Geo.LatLng -25.6065157 43.1851395)
+          { northEast = Maps.Geo.latLng -11.9519639 50.48377989999999
+          , southWest = Maps.Geo.latLng -25.6065157 43.1851395
+          }
     in
       map
       |> viewBounds madagascar
