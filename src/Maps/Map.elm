@@ -130,7 +130,7 @@ zoomTo zoom offset = opaqueMap <| Map.zoomTo zoom offset
 
 {-| Move and zoom the map to cover given the bounds.
 
-For example, view th bounds of Madagascar:
+For example, view the bounds of Madagascar:
 
     let
       madagascar =
